@@ -7,11 +7,11 @@ import PropTypes from "prop-types";
 
 
 function HomePage(props) {
-  const { selectedUser } = props;
+  const { selectedUser, usersData } = props;
   return (
     <Fragment>
       <Header selectedUser={selectedUser} />
-      <Main selectedUser={selectedUser} />
+      <Main selectedUser={selectedUser} usersData={usersData} />
       <Footer />
     </Fragment>
   );

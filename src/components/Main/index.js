@@ -6,15 +6,16 @@ import Select from '../Select';
 import PropTypes from "prop-types";
 
 function Main(props) {
-  const { selectedUser } = props;
-  return (
-    <main className="Main">
-      Main
-      <UserHoliday selectedUser={selectedUser} />
-      <Select />
-      <Calendar />
-    </main>
-  );
+    const { selectedUser, usersData } = props;
+    return (
+        <main className="Main">
+            <section className='content-info-filter'>
+                <UserHoliday selectedUser={selectedUser} />
+                <Select usersData={usersData} />
+            </section>
+            <Calendar />
+        </main>
+    );
 }
 
 Main.propTypes = {

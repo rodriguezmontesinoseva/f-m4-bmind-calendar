@@ -32,7 +32,14 @@ class App extends React.Component {
     const { selectedUser, isFetching } = this.state;
     return (
       <div className='App'>
-        {isFetching ? 'Loading...' : <HomePage selectedUser={selectedUser} />}
+        {isFetching
+          ?
+          'Loading...'
+          :
+          <HomePage
+            selectedUser={selectedUser}
+            usersData={this.state.usersData} />
+        }
       </div>
     );
   }
