@@ -139,6 +139,7 @@
     -ms-user-select: none;
     user-select: none;
     box-shadow: 5px 5px 20px #cacaca;
+    margin: 0 auto;
   }
   
   div#root {
@@ -175,4 +176,25 @@
   
   div.options select {
     margin-left: 10px;
+  }
+
+
+  // ---------------------
+
+  table.calendar td.periods {
+    background-color: rgba(159, 220, 249, 0.32);
+  }
+  table.calendar td.spring {
+    background-color: rgba(145, 212, 110, 0.32);
+  }
+  table.calendar td.summer {
+    background-color: rgba(255, 232, 91, 0.32);
+  }
+  table.calendar td.autumn {
+    background-color: rgba(246, 151, 60, 0.32);
+  }
+  table.calendar td.holidays {
+    font-weight: bold;
+    color: red;
+    text-decoration: underline;
   }
