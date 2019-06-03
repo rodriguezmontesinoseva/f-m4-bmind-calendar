@@ -5,12 +5,16 @@ import { Calendar, CalendarControls } from 'react-yearly-calendar';
 class Demo extends React.Component {
   
   constructor(props) {
+
     super(props);
-    const today = moment();
+    const {selectedUser} = this.props
+    var fecha1 = moment(selectedUser.periods[0].start_date);
+    var fecha2 = moment(selectedUser.periods[0].end_date);
+    const today = selectedUser.periods[0].start_date;
     this.state = {
       year: 2019,
       selectedDay: today,
-      selectedRange: [today, moment(today).add(10, 'day')],
+      selectedRange: [today, moment(today).add(fecha2.diff(fecha1, 'days'), 'day')],
       showDaysOfWeek: true,
       showTodayBtn: true,
       showWeekSeparators: true,
@@ -112,10 +116,8 @@ class Demo extends React.Component {
         <div id="calendar">
           <CalendarControls
             year={year}
-            showTodayButton={showTodayBtn}
             onPrevYear={() => this.onPrevYear()}
             onNextYear={() => this.onNextYear()}
-            goToToday={() => this.goToToday()}
           />
           <Calendar
             year={year}
@@ -130,71 +132,6 @@ class Demo extends React.Component {
             onPickRange={(start, end) => this.rangePicked(start, end)}
           />
         </div>
-
-        {/* <h5>
-          Proudly brought to you by <a href="http://belka.us/en">Belka</a>
-        </h5> */}
-
-        {/* <div className="options">
-          <b>Demo Options</b>
-          <br />
-          <ul>
-            <li>
-              <input
-                id="showDaysOfWeek"
-                type="checkbox"
-                checked={showDaysOfWeek}
-                onChange={() => this.toggleShowDaysOfWeek()}
-              />
-              <label htmlFor="showDaysOfWeek">Show days of week</label>
-            </li>
-            <li>
-              <input
-                id="forceFullWeeks"
-                type="checkbox"
-                checked={forceFullWeeks}
-                onChange={() => this.toggleForceFullWeeks()}
-              />
-              <label htmlFor="forceFullWeeks">Force full weeks</label>
-            </li>
-            <li>
-              <input
-                id="showTodayBtn"
-                type="checkbox"
-                checked={showTodayBtn}
-                onChange={() => this.toggleShowTodayBtn()}
-              />
-              <label htmlFor="showTodayBtn">Show &apos;Today&apos; button</label>
-            </li>
-            <li>
-              <input
-                id="showWeekSeparators"
-                type="checkbox"
-                checked={showWeekSeparators}
-                onChange={() => this.toggleShowWeekSeparators()}
-              />
-              <label htmlFor="showWeekSeparators">Show week separators</label>
-            </li>
-            <li>
-              <label htmlFor="firstDayOfWeek">First day of week</label>
-              <select id="firstDayOfWeek" value={firstDayOfWeek} onChange={e => this.selectFirstDayOfWeek(e)}>
-                {[0, 1, 2, 3, 4, 5, 6].map(i => (
-                  <option key={i} value={i}>
-                    {moment()
-                      .weekday(i)
-                      .format('ddd')}
-                  </option>
-                ))}
-              </select>
-            </li>
-            <li>
-              <input id="selectRange" type="checkbox" checked={selectRange} onChange={() => this.toggleSelectRange()} />
-              <label htmlFor="selectRange">Select Date range</label>
-            </li>
-          </ul>
-          <br />
-          <i>All these options are available as Calendar props.</i>
-        </div> */}
       </div>
     );
   }

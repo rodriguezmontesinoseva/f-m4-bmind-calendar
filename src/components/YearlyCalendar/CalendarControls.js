@@ -5,28 +5,16 @@ const propTypes = {
   year: PropTypes.number.isRequired,
   onPrevYear: PropTypes.func,
   onNextYear: PropTypes.func,
-  goToToday: PropTypes.func,
-  showTodayButton: PropTypes.bool
 };
 
 const defaultProps = {
   onPrevYear: undefined,
   onNextYear: undefined,
-  goToToday: undefined,
-  showTodayButton: false
 };
 
 const CalendarControls = props => {
-  const { year, showTodayButton, goToToday, onPrevYear, onNextYear } = props;
-  let todayButton;
-  if (showTodayButton) {
-    todayButton = (
-      <div className="control today" onClick={() => goToToday()}>
-        Today
-      </div>
-    );
-  }
-
+  const { year, onPrevYear, onNextYear } = props;
+ 
   return (
     <div className="calendar-controls">
       <div className="control" onClick={() => onPrevYear()}>
@@ -36,7 +24,7 @@ const CalendarControls = props => {
       <div className="control" onClick={() => onNextYear()}>
         &raquo;
       </div>
-      {todayButton}
+
     </div>
   );
 };

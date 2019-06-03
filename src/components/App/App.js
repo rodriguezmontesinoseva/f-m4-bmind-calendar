@@ -9,30 +9,17 @@ class App extends React.Component {
     super(props);
     this.state = {
       usersData: [],
-<<<<<<< HEAD
-      selectedUser: {}
-=======
       selectedUser: {},
       isFetching: true
->>>>>>> dev
     };
   }
 
   fetchUsers() {
-<<<<<<< HEAD
-    fetchService()
-      .then(data => {
-        this.setState({
-          usersData: data,
-          selectedUser: data[0]
-        });
-=======
     fetchService().then(data => {
       this.setState({
         usersData: data,
         selectedUser: data[0],
         isFetching: false
->>>>>>> dev
       });
     });
   }
@@ -44,13 +31,8 @@ class App extends React.Component {
   render() {
     const { selectedUser, isFetching } = this.state;
     return (
-<<<<<<< HEAD
-      <div className="App">
-        <HomePage selectedUser={this.state.selectedUser}/>
-=======
       <div className='App'>
         {isFetching ? 'Loading...' : <HomePage selectedUser={selectedUser} />}
->>>>>>> dev
       </div>
     );
   }

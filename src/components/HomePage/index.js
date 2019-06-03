@@ -4,17 +4,6 @@ import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
 
-<<<<<<< HEAD
-function HomePage(props){
-    return (
-        <Fragment >
-            <Header />
-            <Main selectedUser={props.selectedUser}/>
-            <Footer />
-                Home page
-        </Fragment>
-    )
-=======
 function HomePage(props) {
   const { selectedUser } = props;
   return (
@@ -24,7 +13,6 @@ function HomePage(props) {
       <Footer />
     </Fragment>
   );
->>>>>>> dev
 }
 
 export default HomePage;

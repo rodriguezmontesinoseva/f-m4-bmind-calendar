@@ -129,10 +129,10 @@ class Calendar extends Component {
       <Month
         month={month}
         key={`month-${month}`}
-        dayClicked={(d, classes) => this.dayClicked(d, classes)}
-        dayHovered={d => this.dayHovered(d)}
-        {...this.props}
-        selectingRange={selectingRange}
+        // dayClicked={(d, classes) => this.dayClicked(d, classes)}
+        // dayHovered={d => this.dayHovered(d)}
+        // {...this.props}
+        // selectingRange={selectingRange}
       />
     ));
 

@@ -1,4 +1,4 @@
-
+@import '../../stylesheets/variables';
   
   table.calendar {
     border-collapse: collapse;
@@ -73,7 +73,7 @@
   
   /* Selected range */
   table.calendar td.range {
-    background-color: rgba(255,69,0, 0.7);
+    background-color: $secundaryColor400;
     font-weight: bold;
     color: white;
   }
@@ -82,14 +82,14 @@
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     overflow: hidden;
-    background: orangered;
+    background: $secundaryColor800;
   }
   
   table.calendar td.range-right {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     overflow: hidden;
-    background: orangered;
+    background: $secundaryColor800;
   }
   
   div.calendar-controls {
@@ -113,14 +113,6 @@
     color: #323232;
     font-size: 0.8em;
     cursor: pointer;
-  }
-  
-  div.calendar-controls .today {
-    position: absolute;
-    right: 15px;
-    line-height: 35px;
-    font-size: 0.6em;
-    text-transform: uppercase;
   }
   
   /* Demo */
@@ -153,11 +145,11 @@
   
   h1 {
     text-align: center;
-    color: #B10909;
+    color:$secundaryColor800;
   }
   
   a {
-    color: #B10909;
+    color: $secundaryColor800;
     font-weight: bolder;
     text-decoration: none;
   }

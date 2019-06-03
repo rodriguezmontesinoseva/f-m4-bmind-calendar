@@ -4,8 +4,6 @@ import { momentObj } from 'react-moment-proptypes';
 
 const propTypes = {
   classes: PropTypes.string,
-  dayClicked: PropTypes.func.isRequired,
-  dayHovered: PropTypes.func.isRequired,
   day: momentObj
 };
 
@@ -35,7 +33,7 @@ class Day extends Component {
   render() {
     const { classes, day } = this.props;
     return (
-      <td onClick={this.onClick} onMouseEnter={this.onHover} className={classes}>
+      <td className={classes}>
         <span className="day-number">{day === null ? '' : day.date()}</span>
       </td>
     );
