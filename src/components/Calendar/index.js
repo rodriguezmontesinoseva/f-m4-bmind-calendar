@@ -1,12 +1,12 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './styles.scss';
 import Demo from '../YearlyCalendar/Demo';
 
-function Calendar(){
+function Calendar(props){
     return (
-        <Fragment>
-                <Demo />
-        </Fragment>
+        <div>
+                <Demo selectedUser={props.selectedUser}/>
+        </div>
     )
 }
 
