@@ -12,6 +12,8 @@ class App extends React.Component {
       selectedUser: {},
       isFetching: true
     };
+    this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
+
   }
 
   fetchUsers() {
@@ -19,7 +21,7 @@ class App extends React.Component {
       this.setState({
         usersData: data,
         selectedUser: data[0],
-        isFetching: false
+        isFetching: false,
       });
     });
   }
@@ -28,8 +30,20 @@ class App extends React.Component {
     this.fetchUsers();
   }
 
+
+  handlerChangeSelect(event) {
+    const currentIdUser = event.target.value;
+    const newUser = this.state.usersData.find(item => parseInt(currentIdUser) === item.id);
+
+    this.setState({
+      selectedUser: newUser
+
+    })
+
+  }
+
   render() {
-    const { selectedUser, isFetching } = this.state;
+    const { selectedUser, isFetching, usersData } = this.state;
     return (
       <div className='App'>
         {isFetching
@@ -38,7 +52,9 @@ class App extends React.Component {
           :
           <HomePage
             selectedUser={selectedUser}
-            usersData={this.state.usersData} />
+            usersData={usersData}
+            handlerChangeSelect={this.handlerChangeSelect}
+          />
         }
       </div>
     );

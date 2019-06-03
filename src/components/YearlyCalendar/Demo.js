@@ -6,19 +6,7 @@ import { Calendar, CalendarControls } from "react-yearly-calendar";
 class Demo extends React.Component {
   constructor(props) {
     super(props);
-
     const today = moment();
- 
-    let customCSSclasses = {};
-
-    for (let period of this.props.selectedUser.periods) {
-      const name = "periods " + period.id;
-      customCSSclasses[name] = {
-        start: period.start_date,
-        end: period.end_date
-      };
-    }
-
     this.state = {
       year: today.year(),
       selectedDay: today,
@@ -28,8 +16,10 @@ class Demo extends React.Component {
       showWeekSeparators: true,
       selectRange: true,
       firstDayOfWeek: 0, // sunday
-      customCSSclasses
+      customCSSclasses : {}
     };
+ 
+ 
   }
 
   // updateClasses() {
@@ -127,7 +117,7 @@ class Demo extends React.Component {
   }
 
   render() {
-    const {
+    let {
       year,
       showTodayBtn,
       selectedDay,
@@ -139,6 +129,17 @@ class Demo extends React.Component {
       selectedRange,
       customCSSclasses
     } = this.state;
+
+    customCSSclasses = {};
+
+    for (let period of this.props.selectedUser.periods) {
+      const name = "periods " + period.id;
+      customCSSclasses[name] = {
+        start: period.start_date,
+        end: period.end_date
+      };
+    }
+   
 
     return (
       <div>
