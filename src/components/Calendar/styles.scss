@@ -184,17 +184,3 @@
   table.calendar td.periods {
     background-color: $primaryColor200;
   }
-  table.calendar td.spring {
-    background-color: rgba(145, 212, 110, 0.32);
-  }
-  table.calendar td.summer {
-    background-color: rgba(255, 232, 91, 0.32);
-  }
-  table.calendar td.autumn {
-    background-color: rgba(246, 151, 60, 0.32);
-  }
-  table.calendar td.holidays {
-    font-weight: bold;
-    color: red;
-    text-decoration: underline;
-  }

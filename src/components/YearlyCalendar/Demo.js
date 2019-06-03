@@ -32,10 +32,10 @@ class Demo extends React.Component {
     };
   }
 
-  updateClasses() {
-    const { customCSSclasses } = this.state;
-    const input = this.customClassesInput.value;
-    const context = { customCSSclasses, moment };
+  // updateClasses() {
+  //   const { customCSSclasses } = this.state;
+    // const input = this.customClassesInput.value;
+    // const context = { customCSSclasses, moment };
 
     // try {
     //   safeEval(input, context);
@@ -51,7 +51,7 @@ class Demo extends React.Component {
     //   });
     //   throw e;
     // }
-  }
+  // }
 
   onPrevYear() {
     this.setState(prevState => ({
