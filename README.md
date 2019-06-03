@@ -21,6 +21,8 @@ _This project is created with [Create React App] (https://github.com/facebook/cr
 > - You can learn more in [Create React App documentation] (https://facebook.github.io/create-react-app/docs/getting-started).
 > - To learn React, check out the [React documentation] (https://reactjs.org/).
 
+_We use also a library that displays an entire year in a compact format[React-yearly-calendar](https://github.com/BelkaLab/react-yearly-calendar) ._
+
 ## License 📄
 
 This project is under the MIT License - see the file [LICENSE.md] (LICENSE.md) for details
