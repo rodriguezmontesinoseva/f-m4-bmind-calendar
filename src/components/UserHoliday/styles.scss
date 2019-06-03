@@ -1,5 +1,7 @@
+@import './../../stylesheets/variables';
+
 .info-holidays {
-  color: #666;
+  color:$basicColor500;
 }
 .info-holidays__days {
   list-style: none; 
