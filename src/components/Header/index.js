@@ -7,21 +7,14 @@ function Header(props) {
   const { selectedUser } = props;
   return (
     <header className="Header">
-      <a href="https://www.bmind.es/es/" target="_blank">
-        <img
-          src={logoBmindHolidays}
-          alt="logo Bmind"
-          className="Header__image"
-        />
-      </a>
+      <img src={logoBmindHolidays} alt="logo Bmind" className="Header__image" />
       <p className="Header__wellcome">{`Hola, ${selectedUser.name}`}</p>
     </header>
   );
 }
 
 Header.propTypes = {
-    selectedUser: PropTypes.object.isRequired,
-  };
+  selectedUser: PropTypes.object.isRequired
+};
 
 export default Header;
-
