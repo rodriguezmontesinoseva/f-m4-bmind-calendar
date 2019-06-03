@@ -1,7 +1,7 @@
 
 
 function fetchService(){
-    const url = 'https://raw.githubusercontent.com/elvirafuente/people-data/master/users.json';
+    const url = 'https://adalab.bmind.es/api/users';
     return (    fetch(url)
       .then(response => 
           response.json())
