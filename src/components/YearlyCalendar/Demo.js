@@ -3,14 +3,12 @@ import moment from 'moment';
 import { Calendar, CalendarControls } from 'react-yearly-calendar';
 
 class Demo extends React.Component {
+  
   constructor(props) {
     super(props);
-
-
     const today = moment();
-
     this.state = {
-      year: today.year(),
+      year: 2019,
       selectedDay: today,
       selectedRange: [today, moment(today).add(10, 'day')],
       showDaysOfWeek: true,
@@ -20,6 +18,7 @@ class Demo extends React.Component {
       firstDayOfWeek: 0 // sunday
     };
   }
+
 
   onPrevYear() {
     this.setState(prevState => ({
@@ -95,6 +94,7 @@ class Demo extends React.Component {
   }
 
   render() {
+    
     const {
       year,
       showTodayBtn,

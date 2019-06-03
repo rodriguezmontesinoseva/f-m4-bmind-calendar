@@ -8,7 +8,7 @@ function HomePage(props){
     return (
         <Fragment >
             <Header />
-            <Main />
+            <Main selectedUser={props.selectedUser}/>
             <Footer />
                 Home page
         </Fragment>

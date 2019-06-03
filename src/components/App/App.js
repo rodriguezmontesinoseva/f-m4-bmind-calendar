@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      usersData: []
+      usersData: [],
+      selectedUser: {}
     };
   }
   
@@ -16,7 +17,8 @@ class App extends React.Component {
     fetchService()
       .then(data => {
         this.setState({
-          usersData: data
+          usersData: data,
+          selectedUser: data[0]
         });
       });
   }
@@ -28,7 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <HomePage />
+        <HomePage selectedUser={this.state.selectedUser}/>
       </div>
     );
   }
