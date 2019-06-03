@@ -10,7 +10,7 @@ function HomePage(props){
             <Header />
             <Main />
             <Footer />
-                Home page
+                {/* Home page */}
         </Fragment>
     )
 }
