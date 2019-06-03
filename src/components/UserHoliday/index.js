@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './styles.scss';
+import PropTypes from "prop-types";
 
 function UserHoliday(props) {
   const { selectedUser } = props;
@@ -18,5 +19,9 @@ function UserHoliday(props) {
     </div>
   );
 }
+
+UserHoliday.propTypes = {
+  selectedUser: PropTypes.object.isRequired
+};
 
 export default UserHoliday;

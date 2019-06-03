@@ -1,13 +1,20 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './styles.scss';
 
-function Select(props){
+function Select(props) {
+    const { usersData } = props;
     return (
-        <select>
-            <option value="user1">
-                User 1
-            </option>   
-        </select>
+        <div>
+            <select className='btn-select'>
+                <option value="">--Please choose an option--</option>
+                {usersData.map(item => {
+                    return (
+                        <option value={item.id} key={item.id}>
+                            {item.name}
+                        </option>)
+                })}
+            </select>
+        </div>
     )
 }
 
