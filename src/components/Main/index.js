@@ -6,12 +6,12 @@ import Select from '../Select';
 import PropTypes from "prop-types";
 
 function Main(props) {
-    const { selectedUser, usersData } = props;
+    const { selectedUser, usersData, handlerChangeSelect } = props;
     return (
         <main className="Main">
             <section className='content-info-filter'>
                 <UserHoliday selectedUser={selectedUser} />
-                <Select usersData={usersData} />
+                <Select usersData={usersData} handlerChangeSelect={handlerChangeSelect} selectedUser={selectedUser} />
             </section>
             <Calendar />
         </main>
@@ -19,7 +19,7 @@ function Main(props) {
 }
 
 Main.propTypes = {
-  selectedUser: PropTypes.object.isRequired
+    selectedUser: PropTypes.object.isRequired
 };
 
 export default Main;
