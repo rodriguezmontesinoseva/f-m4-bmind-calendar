@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import "../HomePage";
 import HomePage from "../HomePage";
-//import fetchUsers from "../../services/fetchUsers";
+import fetchService from "../../services/fetchService"
 
 class App extends React.Component {
   constructor(props) {
@@ -13,17 +13,7 @@ class App extends React.Component {
   }
   
   fetchUsers() {
-    const url = new URL("https://adalab.bmind.es/api/users");
-
-    let headers = {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    };
-    fetch(url, {
-      method: "GET",
-      headers: headers
-    })
-      .then(response => response.json())
+    fetchService()
       .then(data => {
         this.setState({
           usersData: data
