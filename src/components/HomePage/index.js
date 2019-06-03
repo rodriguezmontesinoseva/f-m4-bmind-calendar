@@ -8,7 +8,7 @@ function HomePage(props) {
   const { selectedUser } = props;
   return (
     <Fragment>
-      <Header />
+      <Header selectedUser={selectedUser} />
       <Main selectedUser={selectedUser} />
       <Footer />
     </Fragment>
