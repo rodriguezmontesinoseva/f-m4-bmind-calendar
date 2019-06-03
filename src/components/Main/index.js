@@ -6,7 +6,7 @@ import Select from '../Select';
 
 function Main(props){
     return (
-        <main>
+        <main className="Main">
             Main
             <UserHoliday />
             <Select />
