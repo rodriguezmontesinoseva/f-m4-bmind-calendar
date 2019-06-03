@@ -1,0 +1,15 @@
+@import "../../stylesheets/variables.scss";
+
+.Header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:20px;
+    height: 60px;
+    border-bottom: solid $secundaryColor400 1px;
+    font-size: 20px;
+}
+
+.Header__image{
+    height: 50px;
+}

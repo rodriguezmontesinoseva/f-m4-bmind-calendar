@@ -1,0 +1,19 @@
+@import './../../stylesheets/variables';
+
+.info-holidays {
+  color:$basicColor500;
+}
+.info-holidays__days {
+  list-style: none; 
+}
+.info-holidays__days li {
+  display: inline;
+}
+.info-holidays__days li:before {
+    content: '|';
+    padding: 0 10px;
+}
+.info-holidays__days li:first-child:before {
+    content: none;
+    padding: 0;
+}
