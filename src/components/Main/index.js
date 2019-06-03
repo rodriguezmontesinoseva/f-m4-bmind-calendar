@@ -11,7 +11,7 @@ function Main(props) {
       Main
       <UserHoliday selectedUser={selectedUser} />
       <Select />
-      <Calendar />
+      <Calendar selectedUser={selectedUser}/>
     </main>
   );
 }

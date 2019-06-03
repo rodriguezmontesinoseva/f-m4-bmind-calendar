@@ -1,50 +1,28 @@
-import React from 'react';
-import moment from 'moment';
-import { Calendar, CalendarControls } from 'react-yearly-calendar';
+import React from "react";
+import moment from "moment";
+import { Calendar, CalendarControls } from "react-yearly-calendar";
 // import safeEval from 'notevil';
 
 class Demo extends React.Component {
   constructor(props) {
     super(props);
 
-  
-  const today = moment();
-    // let startDate;
-    // for(let period of periods){
-    //   startDate = period.start_date;
-    // }
-    // const customCSSclasses = {
-    //   holidays: ['2018-04-25', '2018-05-01', '2018-06-02', '2018-08-15', '2018-11-01'],
-    //   // spring: {
-    //   //   start: {startDate},
-    //   //   end: '2018-6-20'
-    //   // },
-    //   "periods 1": {
-    //     start: '2019-06-21',
-    //     end: '2019-09-22'
-    //   },
-    //   autumn: {
-    //     start: '2018-09-23',
-    //     end: '2018-12-21'
-    //   },
-    //   weekend: 'Sat,Sun',
-    //   periods: {
-    //     start: '2019-09-23',
-    //     end: '2019-12-21'
-    //   }
-    // };
+    const today = moment();
+ 
+    let customCSSclasses = {};
 
-  // const customCSSclasses = {};
-  // customCSSclasses.periods = {
-  //       start: '2019-06-21',
-  //       end: '2019-09-22'
-  //     }
-
+    for (let period of this.props.selectedUser.periods) {
+      const name = "periods " + period.id;
+      customCSSclasses[name] = {
+        start: period.start_date,
+        end: period.end_date
+      };
+    }
 
     this.state = {
       year: today.year(),
       selectedDay: today,
-      selectedRange: [today, moment(today).add(10, 'day')],
+      selectedRange: [today, moment(today).add(10, "day")],
       showDaysOfWeek: true,
       showTodayBtn: true,
       showWeekSeparators: true,
@@ -92,7 +70,7 @@ class Demo extends React.Component {
 
     this.setState({
       selectedDay: today,
-      selectedRange: [today, moment(today).add(15, 'day')],
+      selectedRange: [today, moment(today).add(15, "day")],
       year: today.year()
     });
   }
@@ -100,7 +78,7 @@ class Demo extends React.Component {
   datePicked(date) {
     this.setState({
       selectedDay: date,
-      selectedRange: [date, moment(date).add(15, 'day')]
+      selectedRange: [date, moment(date).add(15, "day")]
     });
   }
 
@@ -184,7 +162,7 @@ class Demo extends React.Component {
             onPickDate={date => this.datePicked(date)}
             onPickRange={(start, end) => this.rangePicked(start, end)}
             customClasses={customCSSclasses}
-         />
+          />
         </div>
 
         {/* <h5>

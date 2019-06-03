@@ -5,7 +5,7 @@ import Demo from '../YearlyCalendar/Demo';
 function Calendar(props){
     return (
         <div>
-                <Demo />
+                <Demo selectedUser={props.selectedUser}/>
         </div>
     )
 }

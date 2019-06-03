@@ -1,4 +1,4 @@
-
+@import '../../stylesheets/variables';
   
   table.calendar {
     border-collapse: collapse;
@@ -73,7 +73,7 @@
   
   /* Selected range */
   table.calendar td.range {
-    background-color: rgba(255,69,0, 0.7);
+    background-color: $selectedColor100;
     font-weight: bold;
     color: white;
   }
@@ -82,14 +82,14 @@
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     overflow: hidden;
-    background: orangered;
+    background: $selectedColor400;
   }
   
   table.calendar td.range-right {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     overflow: hidden;
-    background: orangered;
+    background: $selectedColor400;
   }
   
   div.calendar-controls {
@@ -182,7 +182,7 @@
   // ---------------------
 
   table.calendar td.periods {
-    background-color: rgba(159, 220, 249, 0.32);
+    background-color: $primaryColor200;
   }
   table.calendar td.spring {
     background-color: rgba(145, 212, 110, 0.32);
