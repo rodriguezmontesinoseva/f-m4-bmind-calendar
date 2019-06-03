@@ -5,15 +5,14 @@ import Main from '../Main';
 import Footer from '../Footer';
 
 function HomePage(props) {
-
+    const { selectedUser, usersData } = props;
     return (
-        <Fragment >
+        <Fragment>
             <Header />
-            <Main usersData={props.usersData} />
+            <Main selectedUser={selectedUser} usersData={usersData} />
             <Footer />
-            Home page
         </Fragment>
-    )
+    );
 }
 
 export default HomePage;

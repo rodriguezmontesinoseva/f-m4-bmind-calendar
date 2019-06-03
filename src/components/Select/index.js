@@ -15,17 +15,18 @@ function Select(props) {
             {usersData
                 ?
                 <select>
-                {usersData.map(item => {
-                    return (
-                        <option value="user1">
-                            {item.name}
-                        </option>)
-                })}              
+                    {usersData.map(item => {
+                        return (
+                            <option value="user1">
+                                {item.name}
+                            </option>)
+
+                    })}
+                </select>
 
                 :
-               
                 <p>no hay props</p>
-                </select>};
+            };
 
 
       {/* //  {selCharacter.house ? <p>Casa: {selCharacter.house}</p> : ''} */}

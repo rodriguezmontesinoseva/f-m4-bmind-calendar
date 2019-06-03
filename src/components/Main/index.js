@@ -5,14 +5,15 @@ import Calendar from '../Calendar';
 import Select from '../Select';
 
 function Main(props) {
+    const { selectedUser, usersData } = props;
     return (
-        <main>
+        <main className="Main">
             Main
-            <UserHoliday />
-            <Select usersData={props.usersData} />
+      <UserHoliday selectedUser={selectedUser} />
+            <Select usersData={usersData} />
             <Calendar />
         </main>
-    )
+    );
 }
 
 export default Main;
