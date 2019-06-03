@@ -11,7 +11,6 @@ function HomePage(props) {
       <Header />
       <Main selectedUser={selectedUser} />
       <Footer />
-      Home page
     </Fragment>
   );
 }

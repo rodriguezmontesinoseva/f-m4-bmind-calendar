@@ -7,7 +7,7 @@ import Select from '../Select';
 function Main(props) {
   const { selectedUser } = props;
   return (
-    <main>
+    <main className="Main">
       Main
       <UserHoliday selectedUser={selectedUser} />
       <Select />
