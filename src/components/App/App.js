@@ -33,7 +33,6 @@ class App extends React.Component {
 
   handlerChangeSelect(event) {
     const currentIdUser = event.target.value;
-    console.log(event.target.value);
     const newUser = this.state.usersData.find(item => parseInt(currentIdUser) === item.id);
 
     this.setState({

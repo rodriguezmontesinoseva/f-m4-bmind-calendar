@@ -5,11 +5,10 @@ function Select(props) {
     const { usersData, handlerChangeSelect, selectedUser } = props;
     return (
         <div>
-            <select className='btn-select' onChange={handlerChangeSelect} value={selectedUser}>
-                <option value="">--Please choose an option--</option>
+            <select className='btn-select' onChange={handlerChangeSelect}>
                 {usersData.map(item => {
                     return (
-                        <option value={item.id} key={item.id} >
+                        <option value={item.id} key={item.id} selected={item.id === selectedUser.id} >
                             {item.name}
                         </option>)
                 })}
