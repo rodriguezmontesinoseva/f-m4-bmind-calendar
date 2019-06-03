@@ -11,7 +11,7 @@ class App extends React.Component {
       usersData: []
     };
   }
-  
+
   fetchUsers() {
     fetchService()
       .then(data => {
@@ -28,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <HomePage />
+        <HomePage usersData={this.state.usersData} />
       </div>
     );
   }
