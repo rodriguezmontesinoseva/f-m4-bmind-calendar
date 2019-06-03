@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './styles.scss';
 import UserHoliday from '../UserHoliday';
 import Calendar from '../Calendar';
 import Select from '../Select';
+import PropTypes from "prop-types";
 
 function Main(props) {
   const { selectedUser } = props;
@@ -15,5 +16,9 @@ function Main(props) {
     </main>
   );
 }
+
+Main.propTypes = {
+  selectedUser: PropTypes.object.isRequired
+};
 
 export default Main;
