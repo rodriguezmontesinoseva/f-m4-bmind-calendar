@@ -2,11 +2,11 @@ import React, {Fragment} from 'react';
 import './styles.scss';
 import Demo from '../YearlyCalendar/Demo';
 
-function Calendar(props){
+function Calendar(){
     return (
-        <div>
+        <Fragment>
                 <Demo />
-        </div>
+        </Fragment>
     )
 }
 
