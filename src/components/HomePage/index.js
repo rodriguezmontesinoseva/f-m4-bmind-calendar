@@ -8,9 +8,10 @@ import PropTypes from "prop-types";
 
 function HomePage(props) {
   const { selectedUser, usersData } = props;
+  const logUser = usersData[0].name;
   return (
     <Fragment>
-      <Header selectedUser={selectedUser} />
+      <Header logUser={logUser} />
       <Main selectedUser={selectedUser} usersData={usersData} />
       <Footer />
     </Fragment>
