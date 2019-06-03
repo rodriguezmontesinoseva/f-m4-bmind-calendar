@@ -45,7 +45,7 @@ class App extends React.Component {
   render() {
     const { selectedUser, isFetching, usersData } = this.state;
     return (
-      <div className='App'>
+      <div className='App fetching'>
         {isFetching
           ?
           'Loading...'

@@ -6,18 +6,10 @@
     justify-content: space-between;
     padding:20px;
     height: 60px;
-    width: 100%;
     border-bottom: solid $secundaryColor400 1px;
-    position: fixed;
-    left:0px;
-    top:0px;
     font-size: 20px;
 }
 
 .Header__image{
     height: 50px;
-}
-
-.Header__wellcome{
-    margin-right: 60px;
 }
