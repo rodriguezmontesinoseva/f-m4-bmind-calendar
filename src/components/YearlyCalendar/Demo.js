@@ -16,7 +16,7 @@ class Demo extends React.Component {
       showDaysOfWeek: true,
       showTodayBtn: true,
       showWeekSeparators: true,
-      selectRange: false,
+      selectRange: true,
       firstDayOfWeek: 0 // sunday
     };
   }
@@ -131,11 +131,11 @@ class Demo extends React.Component {
           />
         </div>
 
-        <h5>
+        {/* <h5>
           Proudly brought to you by <a href="http://belka.us/en">Belka</a>
-        </h5>
+        </h5> */}
 
-        <div className="options">
+        {/* <div className="options">
           <b>Demo Options</b>
           <br />
           <ul>
@@ -194,7 +194,7 @@ class Demo extends React.Component {
           </ul>
           <br />
           <i>All these options are available as Calendar props.</i>
-        </div>
+        </div> */}
       </div>
     );
   }

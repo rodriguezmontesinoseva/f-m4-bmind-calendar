@@ -4,7 +4,6 @@ import UserHoliday from '../UserHoliday';
 import Calendar from '../Calendar';
 import Select from '../Select';
 
-
 function Main(props){
     return (
         <main>
