@@ -1,25 +1,57 @@
-import React from 'react';
-import moment from 'moment';
-import { Calendar, CalendarControls } from 'react-yearly-calendar';
+import React from "react";
+import moment from "moment";
+import { Calendar, CalendarControls } from "react-yearly-calendar";
+// import safeEval from 'notevil';
 
 class Demo extends React.Component {
   constructor(props) {
     super(props);
 
-
     const today = moment();
+ 
+    let customCSSclasses = {};
+
+    for (let period of this.props.selectedUser.periods) {
+      const name = "periods " + period.id;
+      customCSSclasses[name] = {
+        start: period.start_date,
+        end: period.end_date
+      };
+    }
 
     this.state = {
       year: today.year(),
       selectedDay: today,
-      selectedRange: [today, moment(today).add(10, 'day')],
+      selectedRange: [today, moment(today).add(10, "day")],
       showDaysOfWeek: true,
       showTodayBtn: true,
       showWeekSeparators: true,
       selectRange: true,
-      firstDayOfWeek: 0 // sunday
+      firstDayOfWeek: 0, // sunday
+      customCSSclasses
     };
   }
+
+  // updateClasses() {
+  //   const { customCSSclasses } = this.state;
+    // const input = this.customClassesInput.value;
+    // const context = { customCSSclasses, moment };
+
+    // try {
+    //   safeEval(input, context);
+
+    //   const nextCustomCSSclasses = context.customCSSclasses;
+    //   this.setState({
+    //     customCSSclasses: nextCustomCSSclasses,
+    //     customClassesError: false
+    //   });
+    // } catch (e) {
+    //   this.setState({
+    //     customClassesError: true
+    //   });
+    //   throw e;
+    // }
+  // }
 
   onPrevYear() {
     this.setState(prevState => ({
@@ -38,7 +70,7 @@ class Demo extends React.Component {
 
     this.setState({
       selectedDay: today,
-      selectedRange: [today, moment(today).add(15, 'day')],
+      selectedRange: [today, moment(today).add(15, "day")],
       year: today.year()
     });
   }
@@ -46,7 +78,7 @@ class Demo extends React.Component {
   datePicked(date) {
     this.setState({
       selectedDay: date,
-      selectedRange: [date, moment(date).add(15, 'day')]
+      selectedRange: [date, moment(date).add(15, "day")]
     });
   }
 
@@ -104,7 +136,8 @@ class Demo extends React.Component {
       showWeekSeparators,
       firstDayOfWeek,
       selectRange,
-      selectedRange
+      selectedRange,
+      customCSSclasses
     } = this.state;
 
     return (
@@ -128,6 +161,7 @@ class Demo extends React.Component {
             selectedRange={selectedRange}
             onPickDate={date => this.datePicked(date)}
             onPickRange={(start, end) => this.rangePicked(start, end)}
+            customClasses={customCSSclasses}
           />
         </div>
 

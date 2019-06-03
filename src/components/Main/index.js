@@ -13,7 +13,7 @@ function Main(props) {
                 <UserHoliday selectedUser={selectedUser} />
                 <Select usersData={usersData} />
             </section>
-            <Calendar />
+            <Calendar selectedUser={selectedUser}/>
         </main>
     );
 }
