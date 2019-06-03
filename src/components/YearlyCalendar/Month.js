@@ -21,7 +21,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  selectingRange: undefined,
+  selectingRange: false,
   selectedRange: undefined,
   customClasses: undefined
 };
@@ -113,17 +113,17 @@ class Month extends Component {
     return false;
   }
 
-  dayClicked(day, classes) {
-    const { dayClicked } = this.props;
-    dayClicked(day, classes);
-  }
+  // dayClicked(day, classes) {
+  //   const { dayClicked } = this.props;
+  //   dayClicked(day, classes);
+  // }
 
-  dayHovered(day) {
-    const { selectRange, dayHovered } = this.props;
-    if (selectRange) {
-      dayHovered(day);
-    }
-  }
+  // dayHovered(day) {
+  //   const { selectRange, dayHovered } = this.props;
+  //   if (selectRange) {
+  //     dayHovered(day);
+  //   }
+  // }
 
   renderMonthDays() {
     const {
@@ -237,8 +237,8 @@ class Month extends Component {
           key={`day-${i}`}
           day={day.isValid() ? day : null}
           classes={classes.join(' ')}
-          dayClicked={d => this.dayClicked(d, classes.join(' '))}
-          dayHovered={d => this.dayHovered(d)}
+          // dayClicked={d => this.dayClicked(d, classes.join(' '))}
+          // dayHovered={d => this.dayHovered(d)}
         />
       );
     });

@@ -13,23 +13,6 @@ const defaultProps = {
 };
 
 class Day extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onClick = this.onClick.bind(this);
-    this.onHover = this.onHover.bind(this);
-  }
-
-  onClick() {
-    const { dayClicked, day } = this.props;
-    dayClicked(day);
-  }
-
-  onHover() {
-    const { dayHovered, day } = this.props;
-    dayHovered(day);
-  }
-
   render() {
     const { classes, day } = this.props;
     return (

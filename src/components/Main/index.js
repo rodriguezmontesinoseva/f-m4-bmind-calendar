@@ -8,7 +8,6 @@ function Main(props) {
   const { selectedUser } = props;
   return (
     <main className="Main">
-      Main
       <UserHoliday selectedUser={selectedUser} />
       <Select />
       <Calendar selectedUser={selectedUser}/> 

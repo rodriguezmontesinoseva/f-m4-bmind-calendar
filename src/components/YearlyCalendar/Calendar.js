@@ -39,56 +39,56 @@ class Calendar extends Component {
     };
   }
 
-  dayClicked(date, classes) {
-    if (!date) {
-      // clicked on prev or next month
-      return;
-    }
+  // dayClicked(date, classes) {
+  //   if (!date) {
+  //     // clicked on prev or next month
+  //     return;
+  //   }
 
-    let { selectingRange } = this.state;
-    const { selectRange, onPickRange, onPickDate } = this.props;
+  //   let { selectingRange } = this.state;
+  //   const { selectRange, onPickRange, onPickDate } = this.props;
 
-    if (!selectRange) {
-      if (onPickDate instanceof Function) {
-        onPickDate(date, classes);
-      }
-      return;
-    }
+  //   if (!selectRange) {
+  //     if (onPickDate instanceof Function) {
+  //       onPickDate(date, classes);
+  //     }
+  //     return;
+  //   }
 
-    if (!selectingRange) {
-      selectingRange = [date, date];
-    } else {
-      if (onPickRange instanceof Function) {
-        if (selectingRange[0] > date) {
-          onPickRange(date, selectingRange[0]);
-        } else {
-          onPickRange(selectingRange[0], date);
-        }
-      }
-      selectingRange = undefined;
-    }
+  //   if (!selectingRange) {
+  //     selectingRange = [date, date];
+  //   } else {
+  //     if (onPickRange instanceof Function) {
+  //       if (selectingRange[0] > date) {
+  //         onPickRange(date, selectingRange[0]);
+  //       } else {
+  //         onPickRange(selectingRange[0], date);
+  //       }
+  //     }
+  //     selectingRange = undefined;
+  //   }
 
-    this.setState({
-      selectingRange
-    });
-  }
+  //   this.setState({
+  //     selectingRange
+  //   });
+  // }
 
-  dayHovered(hoveredDay) {
-    if (!hoveredDay) {
-      // clicked on prev or next month
-      return;
-    }
+  // dayHovered(hoveredDay) {
+  //   if (!hoveredDay) {
+  //     // clicked on prev or next month
+  //     return;
+  //   }
 
-    const { selectingRange } = this.state;
+  //   const { selectingRange } = this.state;
 
-    if (selectingRange) {
-      selectingRange[1] = hoveredDay;
+  //   if (selectingRange) {
+  //     selectingRange[1] = hoveredDay;
 
-      this.setState({
-        selectingRange
-      });
-    }
-  }
+  //     this.setState({
+  //       selectingRange
+  //     });
+  //   }
+  // }
 
   renderDaysOfWeek() {
     const { firstDayOfWeek, forceFullWeeks, showWeekSeparators } = this.props;
@@ -129,10 +129,6 @@ class Calendar extends Component {
       <Month
         month={month}
         key={`month-${month}`}
-        // dayClicked={(d, classes) => this.dayClicked(d, classes)}
-        // dayHovered={d => this.dayHovered(d)}
-        // {...this.props}
-        // selectingRange={selectingRange}
       />
     ));
 

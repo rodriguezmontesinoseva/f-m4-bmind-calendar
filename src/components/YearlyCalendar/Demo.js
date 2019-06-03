@@ -14,12 +14,12 @@ class Demo extends React.Component {
     this.state = {
       year: 2019,
       selectedDay: today,
-      selectedRange: [today, moment(today).add(fecha2.diff(fecha1, 'days'), 'day')],
+      selectedRange: [today, fecha1.add(fecha2.diff(fecha1, 'days'), 'day')],
       showDaysOfWeek: true,
       showTodayBtn: true,
       showWeekSeparators: true,
       selectRange: true,
-      firstDayOfWeek: 0 // sunday
+      firstDayOfWeek: 1 // monday
     };
   }
 
