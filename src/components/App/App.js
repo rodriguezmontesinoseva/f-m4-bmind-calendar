@@ -117,9 +117,9 @@ class App extends React.Component {
   render() {
     const { selectedUser, isFetching, usersData, loggedUser, isDisabled, selectedRange, selectRange, year, selectedDay } = this.state;
     return (
-      <div className="App fetching">
+      <div className="App">
         {isFetching ? (
-          "Loading..."
+          <p className="loading">Loading...</p>
         ) : (
           <HomePage
             selectedUser={selectedUser}
