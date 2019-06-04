@@ -2,6 +2,7 @@
 
 .info-holidays {
   color:$basicColor500;
+  text-align: left;
 }
 .info-holidays__days {
   list-style: none; 
@@ -16,4 +17,7 @@
 .info-holidays__days li:first-child:before {
     content: none;
     padding: 0;
+}
+.bold-name{
+  font-weight: bold;
 }

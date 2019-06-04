@@ -66,31 +66,13 @@
   
   /* Single selected day */
   table.calendar td.selected {
-    background-color: orangered;
-    color: white;
-    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    color: black;
   }
   
-  /* Selected range */
-  table.calendar td.range {
-    background-color: $selectedColor100;
-    font-weight: bold;
-    color: white;
-  }
+ 
   
-  table.calendar td.range-left {
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    overflow: hidden;
-    background: $selectedColor400;
-  }
-  
-  table.calendar td.range-right {
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    overflow: hidden;
-    background: $selectedColor400;
-  }
+
   
   div.calendar-controls {
     margin: 5px auto;
@@ -178,4 +160,22 @@
 
   table.calendar td.periods {
     background-color: $primaryColor200;
+  }
+
+   /* Selected range */
+   table.calendar td.range {
+    background-color: $selectedColor100;
+    font-weight: bold;
+    color: white;
+  }
+  table.calendar td.range-left {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background: $selectedColor400;
+  }
+  
+  table.calendar td.range-right {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: $selectedColor400;
   }
