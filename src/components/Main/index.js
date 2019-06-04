@@ -6,14 +6,25 @@ import Select from '../Select';
 import PropTypes from "prop-types";
 
 function Main(props) {
-    const { selectedUser, usersData, handlerChangeSelect } = props;
+    const {
+        selectedUser,
+        usersData,
+        handlerChangeSelect,
+        handlerChangeTeam,
+        teams } = props;
+
     return (
         <main className="Main">
             <section className='content-info-filter'>
                 <UserHoliday selectedUser={selectedUser} />
-                <Select usersData={usersData} handlerChangeSelect={handlerChangeSelect} selectedUser={selectedUser} />
+                <Select
+                    usersData={usersData}
+                    handlerChangeSelect={handlerChangeSelect}
+                    selectedUser={selectedUser}
+                    handlerChangeTeam={handlerChangeTeam}
+                    teams={teams} />
             </section>
-            <Calendar selectedUser={selectedUser}/>
+            <Calendar selectedUser={selectedUser} />
         </main>
     );
 }

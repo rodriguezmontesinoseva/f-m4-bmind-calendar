@@ -7,12 +7,23 @@ import PropTypes from "prop-types";
 
 
 function HomePage(props) {
-  const { selectedUser, usersData, handlerChangeSelect, loggedUser } = props;
- 
+  const {
+    selectedUser,
+    usersData,
+    handlerChangeSelect,
+    loggedUser,
+    handlerChangeTeam,
+    teams } = props;
+
   return (
     <Fragment>
       <Header loggedUser={loggedUser} />
-      <Main selectedUser={selectedUser} usersData={usersData} handlerChangeSelect={handlerChangeSelect} />
+      <Main
+        selectedUser={selectedUser}
+        usersData={usersData}
+        handlerChangeSelect={handlerChangeSelect}
+        handlerChangeTeam={handlerChangeTeam}
+        teams={teams} />
       <Footer />
     </Fragment>
   );

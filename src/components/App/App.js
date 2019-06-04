@@ -66,7 +66,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedUser, isFetching, usersData, loggedUser } = this.state;
+    const {
+      selectedUser,
+      isFetching,
+      usersData,
+      loggedUser,
+      handlerChangeTeam,
+      teams } = this.state;
+
     return (
       <div className="App fetching">
         {isFetching ? (
@@ -77,6 +84,8 @@ class App extends React.Component {
               usersData={usersData}
               handlerChangeSelect={this.handlerChangeSelect}
               loggedUser={loggedUser}
+              handlerChangeTeam={handlerChangeTeam}
+              teams={teams}
             />
           )}
       </div>
