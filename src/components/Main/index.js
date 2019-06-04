@@ -6,7 +6,7 @@ import Select from "../Select";
 import PropTypes from "prop-types";
 
 function Main(props) {
-  const { selectedUser, usersData, handlerChangeSelect } = props;
+  const { selectedUser, usersData, handlerChangeSelect, isDisabled } = props;
   return (
     <main className="Main">
       <section className="content-info-filter">
@@ -17,13 +17,7 @@ function Main(props) {
           selectedUser={selectedUser}
         />
       </section>
-      <Calendar selectedUser={selectedUser} />
-      <div className="Main__legend-content">
-        <div className="Main__legend-color-approved" />
-        <p>Vacaciones aprobadas</p>
-        <div className="Main__legend-color-requested" />
-        <p>Vacaciones solicitadas</p>
-      </div>
+      <Calendar selectedUser={selectedUser} isDisabled={isDisabled} />
     </main>
   );
 }

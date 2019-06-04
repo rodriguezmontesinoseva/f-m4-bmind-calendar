@@ -13,7 +13,6 @@ class App extends React.Component {
       isFetching: true,
       isDisabled: false,
       loggedUser: {}
-      
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
   }
@@ -55,7 +54,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedUser, isFetching, usersData, loggedUser } = this.state;
+    const { selectedUser, isFetching, usersData, loggedUser, isDisabled } = this.state;
     return (
       <div className="App fetching">
         {isFetching ? (
@@ -65,6 +64,7 @@ class App extends React.Component {
             selectedUser={selectedUser}
             usersData={usersData}
             handlerChangeSelect={this.handlerChangeSelect}
+            isDisabled={isDisabled}
             loggedUser={loggedUser}
           />
         )}
