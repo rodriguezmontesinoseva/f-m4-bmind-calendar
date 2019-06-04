@@ -171,13 +171,11 @@
   table.calendar td.range-left {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    overflow: hidden;
     background: $selectedColor400;
   }
   
   table.calendar td.range-right {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    overflow: hidden;
     background: $selectedColor400;
   }
