@@ -152,6 +152,7 @@ class Demo extends React.Component {
             goToToday={() => this.goToToday()}
           />
           <Calendar
+            selectedUser={this.props.selectedUser}
             year={year}
             selectedDay={selectedDay}
             showDaysOfWeek={showDaysOfWeek}
