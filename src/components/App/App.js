@@ -1,8 +1,8 @@
-import React from 'react';
-import './App.scss';
-import '../HomePage';
-import HomePage from '../HomePage';
-import fetchService from '../../services/fetchService';
+import React from "react";
+import "./App.scss";
+import "../HomePage";
+import HomePage from "../HomePage";
+import fetchService from "../../services/fetchService";
 
 class App extends React.Component {
   constructor(props) {
@@ -10,10 +10,12 @@ class App extends React.Component {
     this.state = {
       usersData: [],
       selectedUser: {},
-      isFetching: true
+      isFetching: true,
+      isDisabled: false,
+      loggedUser: {}
+      
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
-
   }
 
   fetchUsers() {
@@ -22,6 +24,7 @@ class App extends React.Component {
         usersData: data,
         selectedUser: data[0],
         isFetching: false,
+        loggedUser: data[0],
       });
     });
   }
@@ -30,32 +33,41 @@ class App extends React.Component {
     this.fetchUsers();
   }
 
-
   handlerChangeSelect(event) {
     const currentIdUser = event.target.value;
-    const newUser = this.state.usersData.find(item => parseInt(currentIdUser) === item.id);
-
-    this.setState({
-      selectedUser: newUser
-
-    })
-
+    const newUser = this.state.usersData.find(
+      item => parseInt(currentIdUser) === item.id
+    );
+    if (parseInt(currentIdUser) === this.state.loggedUser.id) {
+      // console.log(currentIdUser, this.state.loggedUser.id);
+      
+      this.setState({
+        selectedUser: newUser,
+        isDisabled: false
+      });
+    } else {
+      // console.log(currentIdUser, this.state.loggedUser.id);
+      this.setState({
+        selectedUser: newUser,
+        isDisabled: true
+      });
+    }
   }
 
   render() {
-    const { selectedUser, isFetching, usersData } = this.state;
+    const { selectedUser, isFetching, usersData, loggedUser } = this.state;
     return (
-      <div className='App fetching'>
-        {isFetching
-          ?
-          'Loading...'
-          :
+      <div className="App fetching">
+        {isFetching ? (
+          "Loading..."
+        ) : (
           <HomePage
             selectedUser={selectedUser}
             usersData={usersData}
             handlerChangeSelect={this.handlerChangeSelect}
+            loggedUser={loggedUser}
           />
-        }
+        )}
       </div>
     );
   }
