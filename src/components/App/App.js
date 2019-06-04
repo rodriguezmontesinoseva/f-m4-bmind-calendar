@@ -20,6 +20,7 @@ class App extends React.Component {
       selectRange: true,
       year: today.year(),
       selectedDay: today,
+      team: '0'
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);
@@ -27,7 +28,8 @@ class App extends React.Component {
     this.onPrevYear = this.onPrevYear.bind(this);
     this.onNextYear = this.onNextYear.bind(this);
     this.datePicked = this.datePicked.bind(this);
-    this.goToToday = this.goToToday.bind(this);    
+    this.goToToday = this.goToToday.bind(this);
+    this.handlerChangeTeam = this.handlerChangeTeam.bind(this);
   }
 
   fetchUsers() {
@@ -45,13 +47,21 @@ class App extends React.Component {
     this.fetchUsers();
   }
 
+  handlerChangeTeam(event) {
+    const { value } = event.target;
+    this.setState({
+      team: value
+    })
+
+  }
+
   handlerChangeSelect(event) {
     const currentIdUser = event.target.value;
     const newUser = this.state.usersData.find(
       item => parseInt(currentIdUser) === item.id
     );
     if (parseInt(currentIdUser) === this.state.loggedUser.id) {
-      
+
       this.setState({
         selectedUser: newUser,
         isDisabled: false,
@@ -115,33 +125,44 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedUser, isFetching, usersData, loggedUser, isDisabled, selectedRange, selectRange, year, selectedDay } = this.state;
+    const { selectedUser,
+      isFetching,
+      usersData,
+      loggedUser,
+      isDisabled,
+      selectedRange,
+      selectRange,
+      year,
+      selectedDay,
+      team } = this.state;
     return (
       <div className="App fetching">
         {isFetching ? (
           "Loading..."
         ) : (
-          <HomePage
-            selectedUser={selectedUser}
-            usersData={usersData}
-            handlerChangeSelect={this.handlerChangeSelect}
-            isDisabled={isDisabled}
-            loggedUser={loggedUser}
-            selectedRange={selectedRange}
-            selectRange={selectRange}
-            year={year}
-            selectedDay={selectedDay}
-            goToToday={this.goToToday}
-            onNextYear={this.onNextYear}
-            datePicked={this.datePicked}
-            onPrevYear={this.onPrevYear}
-            rangePicked={this.rangePicked}
-            selectRangeAvailable={this.selectRangeAvailable}
+            <HomePage
+              selectedUser={selectedUser}
+              usersData={usersData}
+              handlerChangeSelect={this.handlerChangeSelect}
+              isDisabled={isDisabled}
+              loggedUser={loggedUser}
+              selectedRange={selectedRange}
+              selectRange={selectRange}
+              year={year}
+              selectedDay={selectedDay}
+              goToToday={this.goToToday}
+              onNextYear={this.onNextYear}
+              datePicked={this.datePicked}
+              onPrevYear={this.onPrevYear}
+              rangePicked={this.rangePicked}
+              selectRangeAvailable={this.selectRangeAvailable}
+              handlerChangeTeam={this.handlerChangeTeam}
+              team={team}
             // onPrevYear={() => this.onPrevYear()}
             // onNextYear={() => this.onNextYear()}
             // goToToday={() => this.goToToday()}
-          />
-        )}
+            />
+          )}
       </div>
     );
   }

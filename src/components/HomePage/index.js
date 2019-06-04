@@ -21,7 +21,9 @@ function HomePage(props) {
     datePicked,
     onPrevYear,
     rangePicked,
-    selectRangeAvailable
+    selectRangeAvailable,
+    handlerChangeTeam,
+    team
   } = props;
 
   return (
@@ -31,6 +33,8 @@ function HomePage(props) {
         selectedUser={selectedUser}
         usersData={usersData}
         handlerChangeSelect={handlerChangeSelect}
+        handlerChangeTeam={handlerChangeTeam}
+        team={team}
         isDisabled={isDisabled}
         loggedUser={loggedUser}
         selectRange={selectRange}
