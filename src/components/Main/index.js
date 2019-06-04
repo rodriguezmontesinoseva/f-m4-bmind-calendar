@@ -18,6 +18,12 @@ function Main(props) {
         />
       </section>
       <Calendar selectedUser={selectedUser} isDisabled={isDisabled} />
+      <div className="Main__legend-content">
+        <div className="Main__legend-color-approved" />
+        <p>Vacaciones aprobadas</p>
+        <div className="Main__legend-color-requested" />
+        <p>Vacaciones solicitadas</p>
+      </div>
     </main>
   );
 }
