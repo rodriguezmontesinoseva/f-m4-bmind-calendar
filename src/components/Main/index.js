@@ -23,7 +23,7 @@ function Main(props) {
         rangePicked,
         selectRangeAvailable,
         handlerChangeTeam,
-        team
+        team,
     } = props;
     return (
         <main className='Main'>

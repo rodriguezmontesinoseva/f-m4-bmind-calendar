@@ -5,14 +5,7 @@ import './styles.scss';
 
 function Select(props) {
     const { usersData, handlerChangeSelect, handlerChangeTeam, team } = props;
-    const filtroMarketing = usersData.filter((item) => item.team_id === team).map(item => {
-        return (
-            <option value={item.id} key={item.id}  >
-                {item.name}
-            </option>)
-    })
-
-
+   
     return (
         <div className='container-filters'>
             <label htmlFor=""> Equipo: </label>
@@ -21,7 +14,6 @@ function Select(props) {
                 <option value='1' key='1' > Marketing</option>
                 <option value='2' key='2' > Dpto.Técnico</option>
             </select>
-
             <label htmlFor=""> Usuarios:  </label>
             <select className='btn-select' onChange={handlerChangeSelect} >
                 {team === '0'
@@ -41,31 +33,6 @@ function Select(props) {
                     )
 
                 }
-
-
-
-                {/* {team === '1' ? filtroMarketing : console.log('hola')} */}
-                {/* {if (team === '1' || team === '2'){
-                    usersData.map((item) => {
-                        return (
-                            <option value={item.id} key={item.id}  >
-                                {item.name}
-                            </option>)
-                    })
-                }
-                else{
-                    filtroMarketing.map(item => {
-                        return (
-                            <option value={item.id} key={item.id}  >
-                                {item.name}
-                            </option>)
-                    })
-
-
-                }
-                } */}
-
-
             </select>
         </div>
     )

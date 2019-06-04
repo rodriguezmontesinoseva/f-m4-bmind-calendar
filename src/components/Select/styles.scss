@@ -1,7 +1,7 @@
 @import './../../stylesheets/variables';
 
 .container-filters{
-    padding: 4px 25px 36px;}
+    padding: 4px 25px 36px 0;}
 
 .btn-select{
     font-family: $secondaryFont;
@@ -13,6 +13,9 @@
     border-color:$basicColor500;
     width: 305px;
     margin-right: 10px;
+}
 
+label{
+    color:$basicColor500;  
 }
 

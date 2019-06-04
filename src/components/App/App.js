@@ -20,7 +20,8 @@ class App extends React.Component {
       selectRange: true,
       year: today.year(),
       selectedDay: today,
-      team: '0'
+      team: '0',
+      selectName:''
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);
@@ -48,9 +49,11 @@ class App extends React.Component {
   }
 
   handlerChangeTeam(event) {
-    const { value } = event.target;
+    console.log(event.target.name);
+    
+    const { value} = event.target;
     this.setState({
-      team: value
+      team: value,
     })
 
   }
@@ -134,7 +137,8 @@ class App extends React.Component {
       selectRange,
       year,
       selectedDay,
-      team } = this.state;
+      team,
+     } = this.state;
     return (
       <div className="App">
         {isFetching ? (
