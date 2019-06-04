@@ -23,6 +23,7 @@ function Main(props) {
         rangePicked,
         selectRangeAvailable,
         handlerChangeTeam,
+        handleValidatePeriod,
         team
     } = props;
     return (
@@ -51,6 +52,7 @@ function Main(props) {
                 onPrevYear={onPrevYear}
                 rangePicked={rangePicked}
                 selectRangeAvailable={selectRangeAvailable}
+                handleValidatePeriod={handleValidatePeriod}
             />
         </main>
     );

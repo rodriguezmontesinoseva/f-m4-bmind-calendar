@@ -15,7 +15,7 @@ const ValidateButton = props => {
       <button
         className="btn-validate"
         disabled={props.isDisabled}
-        onClick={e => console.log(e)}
+        onClick={props.handleValidatePeriod}
       >
         Validar
       </button>
