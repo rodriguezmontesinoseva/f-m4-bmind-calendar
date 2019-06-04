@@ -6,11 +6,17 @@ import Footer from "../Footer";
 import PropTypes from "prop-types";
 
 function HomePage(props) {
-  const { selectedUser, usersData, handlerChangeSelect, isDisabled } = props;
-  const logUser = usersData[0].name;
+  const {
+    selectedUser,
+    usersData,
+    handlerChangeSelect,
+    loggedUser,
+    isDisabled
+  } = props;
+
   return (
     <Fragment>
-      <Header logUser={logUser} />
+      <Header loggedUser={loggedUser} />
       <Main
         selectedUser={selectedUser}
         usersData={usersData}

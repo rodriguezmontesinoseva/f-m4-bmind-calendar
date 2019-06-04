@@ -12,10 +12,10 @@ function UserHoliday(props) {
     <div className='info-holidays'>
        Información sobre las vacaciones de este año:
       <ul className='info-holidays__days'>
-        <li>Vacaciones totales: {selectedUser.vacation_days[moment().year()]}</li>
-        <li>Vacaciones usadas: {selectedUser.vacations_used[moment().year()]}</li>
+        <li>Vacaciones totales: {selectedUser.vacation_days[moment().year()] || 'sin información'}</li>
+        <li>Vacaciones usadas: {selectedUser.vacations_used[moment().year()] || 'sin información'}</li>
         <li>
-          Vacaciones disponibles: {daysLeft}
+          Vacaciones disponibles: {daysLeft || 'sin información'}
         </li>
       </ul>
     </div>
