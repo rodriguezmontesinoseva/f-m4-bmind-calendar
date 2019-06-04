@@ -1,30 +1,58 @@
 import React from 'react';
 import './styles.scss';
 
+
+
 function Select(props) {
-    const { usersData, handlerChangeSelect, handlerChangeTeam, teams } = props;
+    const { usersData, handlerChangeSelect, handlerChangeTeam, team } = props;
+    const filtroMarketing = usersData.filter((item) => item.team_id === team).map(item => {
+        return (
+            <option value={item.id} key={item.id}  >
+                {item.name}
+            </option>)
+    })
+
+
     return (
         <div>
             <label htmlFor=""> Equipo: </label>
-            <select className='btn-select' onChange={handlerChangeTeam} >
-                {teams.map(item => {
-                    return (
-                        <option value={item.team_id} key={item.team_id} >
-                            {item.team_id}
-                        </option>)
-                })}
-                {/* selected={item.id === selectedUser.id} */}
+            <select className='btn-select' onChange={handlerChangeTeam}>
+                <option value='1' key='1' > Marketing</option>
+                <option value='2' key='2' > Dpto.Técnico</option>
             </select>
 
             <label htmlFor=""> Usuarios:  </label>
             <select className='btn-select' onChange={handlerChangeSelect} >
-                {usersData.map(item => {
+                {usersData.filter((item) => item.team_id === team).map(item => {
                     return (
                         <option value={item.id} key={item.id}  >
                             {item.name}
                         </option>)
-                })}
-                {/* selected={item.id === selectedUser.id} */}
+                }
+                )}
+
+                {/* {team === '1' ? filtroMarketing : console.log('hola')} */}
+                {/* {if (team === '1' || team === '2'){
+                    usersData.map((item) => {
+                        return (
+                            <option value={item.id} key={item.id}  >
+                                {item.name}
+                            </option>)
+                    })
+                }
+                else{
+                    filtroMarketing.map(item => {
+                        return (
+                            <option value={item.id} key={item.id}  >
+                                {item.name}
+                            </option>)
+                    })
+
+
+                }
+                } */}
+
+
             </select>
         </div>
     )

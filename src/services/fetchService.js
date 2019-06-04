@@ -1,6 +1,5 @@
 function fetchService() {
-//   const url = "https://adalab.bmind.es/api/users";
-  const url= "https://raw.githubusercontent.com/Adalab/f-m4-bmind-calendar/master/src/data/users.json";
+  const url= "https://adalab.bmind.es/api/users";
   return fetch(url).then(response => response.json());
 }
 

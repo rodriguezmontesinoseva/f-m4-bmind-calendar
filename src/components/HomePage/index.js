@@ -3,8 +3,7 @@ import './styles.scss';
 import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
-import PropTypes from "prop-types";
-
+import PropTypes from 'prop-types';
 
 function HomePage(props) {
   const {
@@ -12,8 +11,20 @@ function HomePage(props) {
     usersData,
     handlerChangeSelect,
     loggedUser,
+    isDisabled,
+    selectRange,
+    selectedRange,
+    year,
+    selectedDay,
+    goToToday,
+    onNextYear,
+    datePicked,
+    onPrevYear,
+    rangePicked,
+    selectRangeAvailable,
     handlerChangeTeam,
-    teams } = props;
+    team
+  } = props;
 
   return (
     <Fragment>
@@ -23,7 +34,20 @@ function HomePage(props) {
         usersData={usersData}
         handlerChangeSelect={handlerChangeSelect}
         handlerChangeTeam={handlerChangeTeam}
-        teams={teams} />
+        team={team}
+        isDisabled={isDisabled}
+        loggedUser={loggedUser}
+        selectRange={selectRange}
+        selectedRange={selectedRange}
+        year={year}
+        selectedDay={selectedDay}
+        goToToday={goToToday}
+        onNextYear={onNextYear}
+        datePicked={datePicked}
+        onPrevYear={onPrevYear}
+        rangePicked={rangePicked}
+        selectRangeAvailable={selectRangeAvailable}
+      />
       <Footer />
     </Fragment>
   );
