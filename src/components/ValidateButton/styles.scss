@@ -3,12 +3,16 @@
 .info__container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
     margin-top: 20px;
     padding: 0 15px;
 }
-
-.btn-validate{
+.info__paragraph {
+    margin-right: 10px;
+    color: $basicColor500;
+}
+.btn-validate {
     font-family: $secondaryFont;
     background-color: rgb(156, 239, 246);
     color: rgb(29, 29, 29);
@@ -27,6 +31,6 @@
         cursor: initial;
         border: 1px solid transparent;
         background-color: rgb(185, 235, 240);
-        color: #ffffff;
+        color: $basicColor100;
     }
 }
