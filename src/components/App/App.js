@@ -136,9 +136,9 @@ class App extends React.Component {
       selectedDay,
       team } = this.state;
     return (
-      <div className="App fetching">
+      <div className="App">
         {isFetching ? (
-          "Loading..."
+          <p className="loading">Loading...</p>
         ) : (
             <HomePage
               selectedUser={selectedUser}

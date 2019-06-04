@@ -70,12 +70,7 @@
     color: black;
   }
   
-  /* Selected range */
-  table.calendar td.range {
-    background-color: $selectedColor100;
-    font-weight: bold;
-    color: white;
-  }
+ 
   
   table.calendar td.range-left {
     border-top-left-radius: 15px;
@@ -177,4 +172,11 @@
 
   table.calendar td.periods {
     background-color: $primaryColor200;
+  }
+
+   /* Selected range */
+   table.calendar td.range {
+    background-color: $selectedColor100;
+    font-weight: bold;
+    color: white;
   }
