@@ -18,6 +18,7 @@
 }
 
 .Main__legend-content{
+    color: $basicColor500;
     margin:10px;
     border: solid 1px $basicColor500;
     padding: 10px;
@@ -27,6 +28,7 @@
     grid-template-columns: 1fr 7fr;
     grid-template-rows: 1fr 1fr; 
     align-items: center;
+    border-radius: 10px;
 }
 
 .Main__legend-color-approved{
