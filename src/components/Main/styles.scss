@@ -16,3 +16,31 @@
     display: flex;
     justify-content: center;
 }
+
+.Main__legend-content{
+    margin:10px;
+    border: solid 1px $basicColor500;
+    padding: 10px;
+    width: 220px;
+    height: 70px;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-template-rows: 1fr 1fr; 
+    align-items: center;
+}
+
+.Main__legend-color-approved{
+    width: 15px;
+    height: 15px;
+    background-color: $primaryColor200;
+    border-radius: 50%;
+    
+}
+
+.Main__legend-color-requested{
+    width: 15px;
+    height: 15px;
+    background-color: $selectedColor400;
+    border-radius: 50%;
+    
+}
