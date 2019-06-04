@@ -12,8 +12,9 @@ class App extends React.Component {
       selectedUser: {},
       isFetching: true,
       isDisabled: false,
-      loggedUser: {}
-      
+      loggedUser: {},
+      teams: []
+
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
   }
@@ -33,6 +34,16 @@ class App extends React.Component {
     this.fetchUsers();
   }
 
+  handlerChangeTeam(event) {
+    const { value } = event.target;
+    this.setState({
+      teams: this.state.teams.includes(value)
+        ? this.state.teams.filter(item => item !== value)
+        : this.state.teams.concat(value)
+    })
+
+  }
+
   handlerChangeSelect(event) {
     const currentIdUser = event.target.value;
     const newUser = this.state.usersData.find(
@@ -40,7 +51,7 @@ class App extends React.Component {
     );
     if (parseInt(currentIdUser) === this.state.loggedUser.id) {
       // console.log(currentIdUser, this.state.loggedUser.id);
-      
+
       this.setState({
         selectedUser: newUser,
         isDisabled: false
@@ -61,13 +72,13 @@ class App extends React.Component {
         {isFetching ? (
           "Loading..."
         ) : (
-          <HomePage
-            selectedUser={selectedUser}
-            usersData={usersData}
-            handlerChangeSelect={this.handlerChangeSelect}
-            loggedUser={loggedUser}
-          />
-        )}
+            <HomePage
+              selectedUser={selectedUser}
+              usersData={usersData}
+              handlerChangeSelect={this.handlerChangeSelect}
+              loggedUser={loggedUser}
+            />
+          )}
       </div>
     );
   }
