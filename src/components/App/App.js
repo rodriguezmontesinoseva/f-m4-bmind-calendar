@@ -20,7 +20,7 @@ class App extends React.Component {
       selectRange: true,
       year: today.year(),
       selectedDay: today,
-      team: ''
+      team: '0'
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);

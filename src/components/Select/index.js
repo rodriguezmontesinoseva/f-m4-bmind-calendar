@@ -14,7 +14,7 @@ function Select(props) {
 
 
     return (
-        <div>
+        <div className='container-filters'>
             <label htmlFor=""> Equipo: </label>
             <select className='btn-select' onChange={handlerChangeTeam}>
                 <option value='0' key='0' > Todos</option>
