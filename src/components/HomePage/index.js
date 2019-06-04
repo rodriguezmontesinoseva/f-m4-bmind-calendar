@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
-import "./styles.scss";
-import Header from "../Header";
-import Main from "../Main";
-import Footer from "../Footer";
-import PropTypes from "prop-types";
+import React, { Fragment } from 'react';
+import './styles.scss';
+import Header from '../Header';
+import Main from '../Main';
+import Footer from '../Footer';
+import PropTypes from 'prop-types';
 
 function HomePage(props) {
   const {
@@ -11,7 +11,17 @@ function HomePage(props) {
     usersData,
     handlerChangeSelect,
     loggedUser,
-    isDisabled
+    isDisabled,
+    selectRange,
+    selectedRange,
+    year,
+    selectedDay,
+    goToToday,
+    onNextYear,
+    datePicked,
+    onPrevYear,
+    rangePicked,
+    selectRangeAvailable
   } = props;
 
   return (
@@ -22,6 +32,17 @@ function HomePage(props) {
         usersData={usersData}
         handlerChangeSelect={handlerChangeSelect}
         isDisabled={isDisabled}
+        loggedUser={loggedUser}
+        selectRange={selectRange}
+        selectedRange={selectedRange}
+        year={year}
+        selectedDay={selectedDay}
+        goToToday={goToToday}
+        onNextYear={onNextYear}
+        datePicked={datePicked}
+        onPrevYear={onPrevYear}
+        rangePicked={rangePicked}
+        selectRangeAvailable={selectRangeAvailable}
       />
       <Footer />
     </Fragment>

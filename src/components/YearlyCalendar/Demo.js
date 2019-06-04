@@ -1,61 +1,18 @@
-import React from "react";
-import moment from "moment";
-import { Calendar, CalendarControls } from "react-yearly-calendar";
-import ValidateButton from "../ValidateButton";
-
+import React from 'react';
+import moment from 'moment';
+import { Calendar, CalendarControls } from 'react-yearly-calendar';
+import ValidateButton from '../ValidateButton';
 class Demo extends React.Component {
   constructor(props) {
     super(props);
     const today = moment();
     this.state = {
-      year: today.year(),
-      selectedDay: today,
-      selectedRange: [today, moment(today).add(0, "day")],
       showDaysOfWeek: true,
       showTodayBtn: true,
       showWeekSeparators: true,
-      selectRange: true,
       firstDayOfWeek: 1, // monday
-      customCSSclasses : {}
+      customCSSclasses: {}
     };
- 
- 
-  }
-
-  onPrevYear() {
-    this.setState(prevState => ({
-      year: prevState.year - 1
-    }));
-  }
-
-  onNextYear() {
-    this.setState(prevState => ({
-      year: prevState.year + 1
-    }));
-  }
-
-  goToToday() {
-    const today = moment();
-
-    this.setState({
-      selectedDay: today,
-      selectedRange: [today, moment(today).add(0, "day")],
-      year: today.year()
-    });
-  }
-
-  datePicked(date) {
-    this.setState({
-      selectedDay: date,
-      selectedRange: [date, moment(date).add(0, "day")]
-    });
-  }
-
-  rangePicked(start, end) {
-    this.setState({
-      selectedRange: [start, end],
-      selectedDay: start
-    });
   }
 
   toggleShowDaysOfWeek() {
@@ -83,12 +40,6 @@ class Demo extends React.Component {
     }));
   }
 
-  toggleSelectRange() {
-    this.setState(prevState => ({
-      selectRange: !prevState.selectRange
-    }));
-  }
-
   selectFirstDayOfWeek(event) {
     this.setState({
       firstDayOfWeek: parseInt(event.target.value, 10)
@@ -97,40 +48,47 @@ class Demo extends React.Component {
 
   render() {
     let {
-      year,
       showTodayBtn,
-      selectedDay,
       showDaysOfWeek,
       forceFullWeeks,
       showWeekSeparators,
       firstDayOfWeek,
-      selectRange,
-      selectedRange,
       customCSSclasses
     } = this.state;
 
-    const { selectedUser, isDisabled } = this.props;
+    const {
+      selectedUser,
+      isDisabled,
+      selectRange,
+      selectedRange,
+      year,
+      selectedDay,
+      goToToday,
+      onNextYear,
+      datePicked,
+      onPrevYear,
+      rangePicked
+    } = this.props;
 
     customCSSclasses = {};
 
     for (let period of selectedUser.periods) {
-      const name = "periods " + period.id;
+      const name = 'periods ' + period.id;
       customCSSclasses[name] = {
         start: period.start_date,
         end: period.end_date
       };
     }
-   
 
     return (
       <div>
-        <div id="calendar">
+        <div id='calendar'>
           <CalendarControls
             year={year}
             showTodayButton={showTodayBtn}
-            onPrevYear={() => this.onPrevYear()}
-            onNextYear={() => this.onNextYear()}
-            goToToday={() => this.goToToday()}
+            onPrevYear={() => onPrevYear()}
+            onNextYear={() => onNextYear()}
+            goToToday={() => goToToday()}
           />
           <Calendar
             selectedUser={selectedUser}
@@ -142,8 +100,8 @@ class Demo extends React.Component {
             firstDayOfWeek={firstDayOfWeek}
             selectRange={selectRange}
             selectedRange={selectedRange}
-            onPickDate={date => this.datePicked(date)}
-            onPickRange={(start, end) => this.rangePicked(start, end)}
+            onPickDate={date => datePicked(date)}
+            onPickRange={(start, end) => rangePicked(start, end)}
             customClasses={customCSSclasses}
           />
         </div>
