@@ -10,7 +10,7 @@ function UserHoliday(props) {
   const daysLeft = totalDays - usedDays;
   return (
     <div className='info-holidays'>
-       Información sobre las vacaciones de este año:
+       Información sobre las vacaciones de este año de <span className="bold-name">{selectedUser.name}</span> :
       <ul className='info-holidays__days'>
         <li>Vacaciones totales: {selectedUser.vacation_days[moment().year()] || 'sin información'}</li>
         <li>Vacaciones usadas: {selectedUser.vacations_used[moment().year()] || 'sin información'}</li>
