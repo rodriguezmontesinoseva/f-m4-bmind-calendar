@@ -23,6 +23,7 @@ function HomePage(props) {
     rangePicked,
     selectRangeAvailable,
     handlerChangeTeam,
+    handleValidatePeriod,
     team
   } = props;
 
@@ -47,6 +48,7 @@ function HomePage(props) {
         onPrevYear={onPrevYear}
         rangePicked={rangePicked}
         selectRangeAvailable={selectRangeAvailable}
+        handleValidatePeriod={handleValidatePeriod}
       />
       <Footer />
     </Fragment>

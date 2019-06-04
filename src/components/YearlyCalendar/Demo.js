@@ -67,7 +67,8 @@ class Demo extends React.Component {
       onNextYear,
       datePicked,
       onPrevYear,
-      rangePicked
+      rangePicked,
+      handleValidatePeriod
     } = this.props;
 
     customCSSclasses = {};
@@ -103,9 +104,10 @@ class Demo extends React.Component {
             onPickDate={date => datePicked(date)}
             onPickRange={(start, end) => rangePicked(start, end)}
             customClasses={customCSSclasses}
+   
           />
         </div>
-        <ValidateButton isDisabled={isDisabled} />
+        <ValidateButton isDisabled={isDisabled} handleValidatePeriod={handleValidatePeriod} />
       </div>
     );
   }

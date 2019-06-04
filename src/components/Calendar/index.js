@@ -16,7 +16,8 @@ function Calendar(props) {
     datePicked,
     onPrevYear,
     rangePicked,
-    selectRangeAvailable
+    selectRangeAvailable,
+    handleValidatePeriod
   } = props;
   return (
     <div>
@@ -34,6 +35,7 @@ function Calendar(props) {
         onPrevYear={onPrevYear}
         rangePicked={rangePicked}
         selectRangeAvailable={selectRangeAvailable}
+        handleValidatePeriod={handleValidatePeriod}
       />
     </div>
   );
