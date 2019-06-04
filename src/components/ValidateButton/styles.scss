@@ -3,10 +3,45 @@
 .info__container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 25px;
+    padding: 0 15px;
+}
+.Main__legend-content{
+    color: $basicColor500;
+    border: solid 1px $basicColor500;
+    padding: 10px;
+    width: 220px;
+    height: 70px;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-template-rows: 1fr 1fr; 
+    align-items: center;
+    border-radius: 10px;
+}
+
+.Main__legend-color-approved{
+    width: 15px;
+    height: 15px;
+    background-color: $primaryColor200;
+    border-radius: 50%;
+    
+}
+
+.Main__legend-color-requested{
+    width: 15px;
+    height: 15px;
+    background-color: $selectedColor400;
+    border-radius: 50%;
+    
+}
+
+.info__container__info-button{
+    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 20px;
-    padding: 0 15px;
 }
 .info__paragraph {
     margin-right: 10px;
