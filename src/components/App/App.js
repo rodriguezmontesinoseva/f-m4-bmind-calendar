@@ -20,8 +20,7 @@ class App extends React.Component {
       selectRange: true,
       year: today.year(),
       selectedDay: today,
-      team: '0',
-      selectName:''
+      team: "0"
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);
@@ -31,6 +30,7 @@ class App extends React.Component {
     this.datePicked = this.datePicked.bind(this);
     this.goToToday = this.goToToday.bind(this);
     this.handlerChangeTeam = this.handlerChangeTeam.bind(this);
+    this.handleValidatePeriod = this.handleValidatePeriod.bind(this)
   }
 
   fetchUsers() {
@@ -39,7 +39,7 @@ class App extends React.Component {
         usersData: data,
         selectedUser: data[0],
         isFetching: false,
-        loggedUser: data[0],
+        loggedUser: data[0]
       });
     });
   }
@@ -53,9 +53,8 @@ class App extends React.Component {
     
     const { value} = event.target;
     this.setState({
-      team: value,
-    })
-
+      team: value
+    });
   }
 
   handlerChangeSelect(event) {
@@ -64,7 +63,6 @@ class App extends React.Component {
       item => parseInt(currentIdUser) === item.id
     );
     if (parseInt(currentIdUser) === this.state.loggedUser.id) {
-
       this.setState({
         selectedUser: newUser,
         isDisabled: false,
@@ -79,6 +77,34 @@ class App extends React.Component {
     }
   }
 
+  handleValidatePeriod() {
+    const selectStartDay = this.state.selectedRange[0]._i[2];
+    const selectStartMonth = parseInt(this.state.selectedRange[0]._i[1]) + 1;
+    const selectStartYear = this.state.selectedRange[0]._i[0];
+    const selectEndDay = this.state.selectedRange[1]._i[2];
+    const selectEndMonth = parseInt(this.state.selectedRange[1]._i[1]) + 1;
+    const selectEndYear = this.state.selectedRange[1]._i[0];
+    const url = new URL("https://adalab.bmind.es/api/periods");
+    const data = {
+      start_date: selectStartYear + "-" + selectStartMonth + "-" + selectStartDay,
+      end_date: selectEndYear + "-" + selectEndMonth + "-" + selectEndDay,
+      year: selectEndYear,
+      user_id: this.state.loggedUser.id
+    };
+    console.log(data);
+    // let headers = {
+    //   "Accept": "application/json",
+    //   "Content-Type": "application/json",
+    // }
+
+    // fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers: headers
+    // })
+    //   .then(response => response)
+    //   .then(json => console.log(json));
+  }
   goToToday() {
     const today = moment();
 
@@ -128,7 +154,8 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedUser,
+    const {
+      selectedUser,
       isFetching,
       usersData,
       loggedUser,
@@ -137,36 +164,37 @@ class App extends React.Component {
       selectRange,
       year,
       selectedDay,
-      team,
-     } = this.state;
+      team
+    } = this.state;
     return (
       <div className="App">
         {isFetching ? (
           <p className="loading">Loading...</p>
         ) : (
-            <HomePage
-              selectedUser={selectedUser}
-              usersData={usersData}
-              handlerChangeSelect={this.handlerChangeSelect}
-              isDisabled={isDisabled}
-              loggedUser={loggedUser}
-              selectedRange={selectedRange}
-              selectRange={selectRange}
-              year={year}
-              selectedDay={selectedDay}
-              goToToday={this.goToToday}
-              onNextYear={this.onNextYear}
-              datePicked={this.datePicked}
-              onPrevYear={this.onPrevYear}
-              rangePicked={this.rangePicked}
-              selectRangeAvailable={this.selectRangeAvailable}
-              handlerChangeTeam={this.handlerChangeTeam}
-              team={team}
+          <HomePage
+            selectedUser={selectedUser}
+            usersData={usersData}
+            handlerChangeSelect={this.handlerChangeSelect}
+            isDisabled={isDisabled}
+            loggedUser={loggedUser}
+            selectedRange={selectedRange}
+            selectRange={selectRange}
+            year={year}
+            selectedDay={selectedDay}
+            goToToday={this.goToToday}
+            onNextYear={this.onNextYear}
+            datePicked={this.datePicked}
+            onPrevYear={this.onPrevYear}
+            rangePicked={this.rangePicked}
+            selectRangeAvailable={this.selectRangeAvailable}
+            handlerChangeTeam={this.handlerChangeTeam}
+            team={team}
+            handleValidatePeriod={this.handleValidatePeriod}
             // onPrevYear={() => this.onPrevYear()}
             // onNextYear={() => this.onNextYear()}
             // goToToday={() => this.goToToday()}
-            />
-          )}
+          />
+        )}
       </div>
     );
   }
