@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.fcefe94e.chunk.css",
-    "main.js": "./static/js/main.b7e85174.chunk.js",
-    "main.js.map": "./static/js/main.b7e85174.chunk.js.map",
+    "main.css": "./static/css/main.e1f9a15c.chunk.css",
+    "main.js": "./static/js/main.1d72e069.chunk.js",
+    "main.js.map": "./static/js/main.1d72e069.chunk.js.map",
     "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
     "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
-    "static/js/2.43c313c5.chunk.js": "./static/js/2.43c313c5.chunk.js",
-    "static/js/2.43c313c5.chunk.js.map": "./static/js/2.43c313c5.chunk.js.map",
+    "static/js/2.71e178d1.chunk.js": "./static/js/2.71e178d1.chunk.js",
+    "static/js/2.71e178d1.chunk.js.map": "./static/js/2.71e178d1.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.70a8dc34545f2f60298a346698ffa742.js": "./precache-manifest.70a8dc34545f2f60298a346698ffa742.js",
+    "precache-manifest.b7cbcbd5c6005406e2f2d3dcaa56e852.js": "./precache-manifest.b7cbcbd5c6005406e2f2d3dcaa56e852.js",
     "service-worker.js": "./service-worker.js",
-    "static/css/main.fcefe94e.chunk.css.map": "./static/css/main.fcefe94e.chunk.css.map",
+    "static/css/main.e1f9a15c.chunk.css.map": "./static/css/main.e1f9a15c.chunk.css.map",
     "static/media/logo-bmind-holidays.png": "./static/media/logo-bmind-holidays.d4acb251.png",
     "static/media/logo-bmind.png": "./static/media/logo-bmind.b33ac75d.png"
   }

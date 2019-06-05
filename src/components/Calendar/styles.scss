@@ -10,7 +10,6 @@
     border-bottom: 2px solid white
   }
   
-  
   table.calendar thead th {
     font-weight: normal;
     padding: 10px 3px;
@@ -64,15 +63,10 @@
     font-weight: bold;
   }
   
-  /* Single selected day */
   table.calendar td.selected {
     background-color: rgb(255, 255, 255);
     color: black;
   }
-  
- 
-  
-
   
   div.calendar-controls {
     margin: 5px auto;
@@ -106,7 +100,6 @@
   }
   
   /* Demo */
-  
   div#calendar {
     position: relative;
     padding: 15px;
@@ -155,9 +148,6 @@
     margin-left: 10px;
   }
 
-
-  // ---------------------
-
   table.calendar td.periods {
     background-color: $primaryColor200;
   }
@@ -171,13 +161,11 @@
   table.calendar td.range-left {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    overflow: hidden;
     background: $selectedColor400;
   }
   
   table.calendar td.range-right {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    overflow: hidden;
     background: $selectedColor400;
   }
