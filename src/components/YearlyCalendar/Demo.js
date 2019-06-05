@@ -1,43 +1,16 @@
 import React from 'react';
-import moment from 'moment';
 import { Calendar, CalendarControls } from 'react-yearly-calendar';
 import ValidateButton from '../ValidateButton';
 class Demo extends React.Component {
   constructor(props) {
     super(props);
-    const today = moment();
     this.state = {
       showDaysOfWeek: true,
       showTodayBtn: true,
       showWeekSeparators: true,
-      firstDayOfWeek: 1, // monday
+      firstDayOfWeek: 1,
       customCSSclasses: {}
     };
-  }
-
-  toggleShowDaysOfWeek() {
-    this.setState(prevState => ({
-      showDaysOfWeek: !prevState.showDaysOfWeek
-    }));
-  }
-
-  toggleForceFullWeeks() {
-    this.setState(prevState => ({
-      showDaysOfWeek: true,
-      forceFullWeeks: !prevState.forceFullWeeks
-    }));
-  }
-
-  toggleShowTodayBtn() {
-    this.setState(prevState => ({
-      showTodayBtn: !prevState.showTodayBtn
-    }));
-  }
-
-  toggleShowWeekSeparators() {
-    this.setState(prevState => ({
-      showWeekSeparators: !prevState.showWeekSeparators
-    }));
   }
 
   selectFirstDayOfWeek(event) {
@@ -104,7 +77,7 @@ class Demo extends React.Component {
             onPickDate={date => datePicked(date)}
             onPickRange={(start, end) => rangePicked(start, end)}
             customClasses={customCSSclasses}
-   
+
           />
         </div>
         <ValidateButton isDisabled={isDisabled} handleValidatePeriod={handleValidatePeriod} />

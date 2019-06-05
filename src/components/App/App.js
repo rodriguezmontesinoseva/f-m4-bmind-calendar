@@ -91,18 +91,20 @@ class App extends React.Component {
     };
     console.log(data);
 
-    // let headers = {
-    //   "Accept": "application/json",
-    //   "Content-Type": "application/json",
-    // }
+    let headers = {
+      "Accept": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
+    }
 
-    // fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers: headers
-    // })
-    //   .then(response => response)
-    //   .then(json => console.log(json));
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: headers
+    })
+      .then(response => response)
+      .then(json => console.log(json));
+
+    window.location.reload();
   }
 
 
