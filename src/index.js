@@ -6,7 +6,6 @@ import Calendar from './components/YearlyCalendar/Calendar';
 import CalendarControls from './components/YearlyCalendar/CalendarControls';
 import { HashRouter } from 'react-router-dom';
 
-
 ReactDOM.render(
     <HashRouter >
         <App />

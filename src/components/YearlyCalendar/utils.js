@@ -1,5 +1,3 @@
-/* eslint-disable */
-// Grabbed from the underscore.js source code (https://github.com/jashkenas/underscore/blob/master/underscore.js#L691)
 export function range(start, stop, step) {
     if (stop == null) {
       stop = start || 0;

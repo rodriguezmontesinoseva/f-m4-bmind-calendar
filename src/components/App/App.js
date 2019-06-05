@@ -21,17 +21,17 @@ class App extends React.Component {
       selectRange: true,
       year: today.year(),
       selectedDay: today,
-      team: "0"
+      team: "0",
+      teamID: ""
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);
-    //this.selectRangeAvailable = this.selectRangeAvailable.bind(this);
     this.onPrevYear = this.onPrevYear.bind(this);
     this.onNextYear = this.onNextYear.bind(this);
     this.datePicked = this.datePicked.bind(this);
     this.goToToday = this.goToToday.bind(this);
     this.handlerChangeTeam = this.handlerChangeTeam.bind(this);
-    this.handleValidatePeriod = this.handleValidatePeriod.bind(this)
+    this.handleValidatePeriod = this.handleValidatePeriod.bind(this);
   }
 
   fetchUsers() {
@@ -50,8 +50,6 @@ class App extends React.Component {
   }
 
   handlerChangeTeam(event) {
-    console.log(event.target.name);
-
     const { value } = event.target;
     this.setState({
       team: value
@@ -67,13 +65,15 @@ class App extends React.Component {
       this.setState({
         selectedUser: newUser,
         isDisabled: false,
-        selectRange: true
+        selectRange: true,
+        teamID: newUser.team_id
       });
     } else {
       this.setState({
         selectedUser: newUser,
         isDisabled: true,
-        selectRange: false
+        selectRange: false,
+        teamID: newUser.team_id
       });
     }
   }
@@ -85,30 +85,33 @@ class App extends React.Component {
     const selectEndDay = this.state.selectedRange[1]._i[2];
     const selectEndMonth = parseInt(this.state.selectedRange[1]._i[1]) + 1;
     const selectEndYear = this.state.selectedRange[1]._i[0];
-    // const url = new URL("https://adalab.bmind.es/api/periods");
+    const url = new URL("https://adalab.bmind.es/api/periods");
     const data = {
-      start_date: selectStartYear + "-" + selectStartMonth + "-" + selectStartDay,
+      start_date:
+        selectStartYear + "-" + selectStartMonth + "-" + selectStartDay,
       end_date: selectEndYear + "-" + selectEndMonth + "-" + selectEndDay,
       year: selectEndYear,
       user_id: this.state.loggedUser.id
     };
-    console.log(data);
-    // let headers = {
-    //   "Accept": "application/json",
-    //   "Content-Type": "application/json",
-    // }
 
-    // fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers: headers
-    // })
-    //   .then(response => response)
-    //   .then(json => console.log(json));
+    let headers = {
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded"
+    };
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: headers
+    })
+      .then(response => response)
+      .then(json => json);
+
+    window.location.reload();
   }
+
   goToToday() {
     const today = moment();
-
     this.setState({
       selectedDay: today,
       selectedRange: [today, moment(today).add(0, "day")],
@@ -129,18 +132,6 @@ class App extends React.Component {
       selectedDay: start
     });
   }
-
-  // selectRangeAvailable() {
-  //   if(this.props.isDisabled) {
-  //     this.setState({
-  //       selectRange: true
-  //     })
-  //   } else {
-  //     this.setState({
-  //       selectRange: false
-  //     })
-  //   }
-  // }
 
   onPrevYear() {
     this.setState(prevState => ({
@@ -165,7 +156,7 @@ class App extends React.Component {
       selectRange,
       year,
       selectedDay,
-      team
+      team,
     } = this.state;
     return (
       <div className="App">

@@ -24,7 +24,8 @@ function Main(props) {
         selectRangeAvailable,
         handlerChangeTeam,
         handleValidatePeriod,
-        team
+        team,
+        teamID
     } = props;
     return (
         <main className='Main'>
@@ -36,6 +37,7 @@ function Main(props) {
                     selectedUser={selectedUser}
                     handlerChangeTeam={handlerChangeTeam}
                     team={team}
+                    teamID={teamID}
                 />
             </section>
             <Calendar

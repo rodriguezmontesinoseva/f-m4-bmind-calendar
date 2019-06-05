@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import './styles.scss';
 import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
@@ -24,7 +23,8 @@ function HomePage(props) {
     selectRangeAvailable,
     handlerChangeTeam,
     handleValidatePeriod,
-    team
+    team,
+    teamID
   } = props;
 
   return (
@@ -36,6 +36,7 @@ function HomePage(props) {
         handlerChangeSelect={handlerChangeSelect}
         handlerChangeTeam={handlerChangeTeam}
         team={team}
+        teamID={teamID}
         isDisabled={isDisabled}
         loggedUser={loggedUser}
         selectRange={selectRange}
