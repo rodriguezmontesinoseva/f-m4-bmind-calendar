@@ -16,15 +16,15 @@ function Select(props) {
         {" "}
         Equipo:{" "}
         <select className="btn-select" onChange={handlerChangeTeam}>
-          <option value="0" key="0" defaultValue={teamID}>
+          <option value="0" key="0" selected={teamID}>
             {" "}
             Todos
           </option>
-          <option value="1" key="1" defaultValue={teamID}>
+          <option value="1" key="1" selected={teamID}>
             {" "}
             Marketing
           </option>
-          <option value="2" key="2" defaultValue={teamID}>
+          <option value="2" key="2" selected={teamID}>
             {" "}
             Dpto.Técnico
           </option>

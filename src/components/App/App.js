@@ -5,6 +5,7 @@ import HomePage from "../HomePage";
 import Landing from "../Landing";
 import fetchService from "../../services/fetchService";
 import moment from "moment";
+import Loading from "../../images/Loading.gif";
 import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
@@ -50,6 +51,8 @@ class App extends React.Component {
   }
 
   handlerChangeTeam(event) {
+    console.log(event.target.name);
+
     const { value } = event.target;
     this.setState({
       team: value
@@ -93,25 +96,10 @@ class App extends React.Component {
       year: selectEndYear,
       user_id: this.state.loggedUser.id
     };
-
-    let headers = {
-      Accept: "application/json",
-      "Content-Type": "application/x-www-form-urlencoded"
-    };
-
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: headers
-    })
-      .then(response => response)
-      .then(json => json);
-
-    window.location.reload();
   }
-
   goToToday() {
     const today = moment();
+
     this.setState({
       selectedDay: today,
       selectedRange: [today, moment(today).add(0, "day")],
@@ -161,7 +149,14 @@ class App extends React.Component {
     return (
       <div className="App">
         {isFetching ? (
-          <p className="loading">Loading...</p>
+          <div className="loading-container">
+            <img
+              src={Loading}
+              alt="loading spinner"
+              className="Loading-image"
+            />
+            <p>Loading...</p>
+          </div>
         ) : (
             <Switch >
               <Route
