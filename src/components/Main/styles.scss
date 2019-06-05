@@ -2,9 +2,10 @@
 
 .content-info-filter{
     display: flex;
-    // justify-content: space-between;
     padding: 15px;
-    flex-direction: column-reverse;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .Main{
