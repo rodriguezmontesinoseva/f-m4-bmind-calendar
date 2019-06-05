@@ -4,6 +4,8 @@ import "../HomePage";
 import HomePage from "../HomePage";
 import fetchService from "../../services/fetchService";
 import moment from "moment";
+import Loading from "../../images/Loading.gif";
+//import Demo, {selectRangeAvailable} from '../YearlyCalendar/Demo';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +26,7 @@ class App extends React.Component {
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);
+    //this.selectRangeAvailable = this.selectRangeAvailable.bind(this);
     this.onPrevYear = this.onPrevYear.bind(this);
     this.onNextYear = this.onNextYear.bind(this);
     this.datePicked = this.datePicked.bind(this);
@@ -48,6 +51,8 @@ class App extends React.Component {
   }
 
   handlerChangeTeam(event) {
+    console.log(event.target.name);
+
     const { value } = event.target;
     this.setState({
       team: value
@@ -91,25 +96,23 @@ class App extends React.Component {
       year: selectEndYear,
       user_id: this.state.loggedUser.id
     };
+    console.log(data);
+    // let headers = {
+    //   "Accept": "application/json",
+    //   "Content-Type": "application/json",
+    // }
 
-    let headers = {
-      Accept: "application/json",
-      "Content-Type": "application/x-www-form-urlencoded"
-    };
-
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: headers
-    })
-      .then(response => response)
-      .then(json => json);
-
-    window.location.reload();
+    // fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers: headers
+    // })
+    //   .then(response => response)
+    //   .then(json => console.log(json));
   }
-
   goToToday() {
     const today = moment();
+
     this.setState({
       selectedDay: today,
       selectedRange: [today, moment(today).add(0, "day")],
@@ -130,6 +133,18 @@ class App extends React.Component {
       selectedDay: start
     });
   }
+
+  // selectRangeAvailable() {
+  //   if(this.props.isDisabled) {
+  //     this.setState({
+  //       selectRange: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       selectRange: false
+  //     })
+  //   }
+  // }
 
   onPrevYear() {
     this.setState(prevState => ({
@@ -160,7 +175,14 @@ class App extends React.Component {
     return (
       <div className="App">
         {isFetching ? (
-          <p className="loading">Loading...</p>
+          <div className="loading-container">
+            <img
+              src={Loading}
+              alt="loading spinner"
+              className="Loading-image"
+            />
+            <p>Loading...</p>
+          </div>
         ) : (
           <HomePage
             selectedUser={selectedUser}
@@ -182,6 +204,9 @@ class App extends React.Component {
             team={team}
             teamID={teamID}
             handleValidatePeriod={this.handleValidatePeriod}
+            // onPrevYear={() => this.onPrevYear()}
+            // onNextYear={() => this.onNextYear()}
+            // goToToday={() => this.goToToday()}
           />
         )}
       </div>
