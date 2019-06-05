@@ -89,7 +89,24 @@ class App extends React.Component {
       year: selectEndYear,
       user_id: this.state.loggedUser.id
     };
+    console.log(data);
+
+    // let headers = {
+    //   "Accept": "application/json",
+    //   "Content-Type": "application/json",
+    // }
+
+    // fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers: headers
+    // })
+    //   .then(response => response)
+    //   .then(json => console.log(json));
   }
+
+
+
   goToToday() {
     const today = moment();
     this.setState({
