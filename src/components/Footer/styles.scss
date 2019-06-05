@@ -1,0 +1,16 @@
+@import "../../stylesheets/variables.scss";
+
+.Footer{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    height: 50px;
+    border-top: solid $secundaryColor400 1px;
+    color:$basicColor500
+}
+
+.Footer__image{
+    height: 50px;
+}

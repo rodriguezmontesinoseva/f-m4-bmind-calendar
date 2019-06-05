@@ -1,0 +1,29 @@
+@import "../../stylesheets/variables.scss";
+
+.Header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:20px;
+    height: 50px;
+    border-bottom: solid $secundaryColor400 1px;
+    font-size: 16px;
+    font-weight: bold;
+    color:$basicColor500;
+}
+
+.Header__image{
+    height: 40px;
+}
+
+.disconected__image {
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

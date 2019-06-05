@@ -1,0 +1,21 @@
+@import './../../stylesheets/variables';
+
+.content-info-filter{
+    display: flex;
+    padding: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.Main{
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1340px;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+

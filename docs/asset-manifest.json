@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "./static/css/main.ce8009e1.chunk.css",
+    "main.js": "./static/js/main.b0d367eb.chunk.js",
+    "main.js.map": "./static/js/main.b0d367eb.chunk.js.map",
+    "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
+    "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
+    "static/js/2.f82d6c45.chunk.js": "./static/js/2.f82d6c45.chunk.js",
+    "static/js/2.f82d6c45.chunk.js.map": "./static/js/2.f82d6c45.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.20233bf26531de4e9b507abe5a20cd15.js": "./precache-manifest.20233bf26531de4e9b507abe5a20cd15.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.ce8009e1.chunk.css.map": "./static/css/main.ce8009e1.chunk.css.map",
+    "static/media/Loading.gif": "./static/media/Loading.5fe4039b.gif",
+    "static/media/logo-bmind-holidays-white.png": "./static/media/logo-bmind-holidays-white.0c9586f7.png",
+    "static/media/logo-bmind-holidays.png": "./static/media/logo-bmind-holidays.d4acb251.png",
+    "static/media/logo-bmind.png": "./static/media/logo-bmind.b33ac75d.png",
+    "static/media/power-button-off.svg": "./static/media/power-button-off.7468a99a.svg"
+  }
+}

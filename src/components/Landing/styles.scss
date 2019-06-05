@@ -1,0 +1,82 @@
+@import "../../stylesheets/variables.scss";
+
+.page__container{
+    background-image: linear-gradient(to right top, #009aec, #00acef, #00bdee, #26cdea, #58dbe6);    min-height: 100vh;
+}
+
+.main__container {
+    max-width: 1340px;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login_container{
+    background-color:$basicColor100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    height: 230px;
+    width: 400px;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.login__form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.hidden{
+    visibility: hidden;
+    position: absolute;
+    top: -5000px;
+}
+
+.login__title{
+    margin-bottom: 20px;
+    color:$secundaryColor800;
+    font-weight: 400;
+}
+
+.form__input{
+    padding: 10px;
+    background-color: $secundaryColor100;
+    border: 0;
+    margin-bottom: 20px;
+} 
+
+.form__link{
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primaryColor200;
+    background-color: #5ad1ea;
+    &:hover{
+        background-color:  #3cbed8;
+    }
+}
+
+.form__button{
+    border: 0;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: $secondaryFont;
+    color: $basicColor100;
+    cursor: pointer;
+}
+
+.main__logo{
+    width: 350px;
+    margin-bottom: 30px;
+    margin-right: 15px;
+}

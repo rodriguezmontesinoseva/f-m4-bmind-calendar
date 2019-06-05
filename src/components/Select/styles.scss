@@ -1,0 +1,24 @@
+@import './../../stylesheets/variables';
+
+.container-filters{
+    display:flex;
+    flex-direction: column;
+}
+
+.btn-select{
+    font-family: $secondaryFont;
+    background-color: $basicColor100;
+    color:$basicColor500;
+    font-size: medium;
+    border-radius: 10px;
+    padding: 5px;
+    border-color:$basicColor500;
+    width: 305px;
+    margin: 5px 0 5px 5px;
+}
+
+label{
+    color:$basicColor500;  
+    text-align: right;
+}
+
