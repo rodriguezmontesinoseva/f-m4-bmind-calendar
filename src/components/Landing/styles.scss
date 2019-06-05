@@ -60,6 +60,9 @@
     align-items: center;
     background-color: $primaryColor200;
     background-color: #5ad1ea;
+    &:hover{
+        background-color:  #3cbed8;
+    }
 }
 
 .form__button{
