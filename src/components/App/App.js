@@ -47,8 +47,6 @@ class App extends React.Component {
   }
 
   handlerChangeTeam(event) {
-    console.log(event.target.name);
-
     const { value } = event.target;
     this.setState({
       team: value
@@ -89,7 +87,6 @@ class App extends React.Component {
       year: selectEndYear,
       user_id: this.state.loggedUser.id
     };
-    console.log(data);
 
     let headers = {
       "Accept": "application/json",
@@ -102,7 +99,7 @@ class App extends React.Component {
       headers: headers
     })
       .then(response => response)
-      .then(json => console.log(json));
+      .then(json => json);
 
     window.location.reload();
   }

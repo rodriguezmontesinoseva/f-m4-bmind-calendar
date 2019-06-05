@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import { momentObj } from 'react-moment-proptypes';
-import Month from './Month';
-import { range } from './utils';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import moment from "moment";
+import { momentObj } from "react-moment-proptypes";
+import Month from "./Month";
+import { range } from "./utils";
 
 const propTypes = {
   year: PropTypes.number.isRequired,
@@ -41,7 +41,6 @@ class Calendar extends Component {
 
   dayClicked(date, classes) {
     if (!date) {
-      // clicked on prev or next month
       return;
     }
 
@@ -75,7 +74,6 @@ class Calendar extends Component {
 
   dayHovered(hoveredDay) {
     if (!hoveredDay) {
-      // clicked on prev or next month
       return;
     }
 
@@ -98,17 +96,16 @@ class Calendar extends Component {
     range(firstDayOfWeek, totalDays + firstDayOfWeek).forEach(i => {
       const day = moment()
         .weekday(i)
-        .format('dd')
+        .format("dd")
         .charAt(0);
 
       if (showWeekSeparators) {
         if (i % 7 === firstDayOfWeek && days.length) {
-          // push week separator
           days.push(<th className="week-separator" key={`seperator-${i}`} />);
         }
       }
       days.push(
-        <th key={`weekday-${i}`} className={i % 7 === 0 ? 'bolder' : ''}>
+        <th key={`weekday-${i}`} className={i % 7 === 0 ? "bolder" : ""}>
           {day}
         </th>
       );
@@ -138,7 +135,9 @@ class Calendar extends Component {
 
     return (
       <table className="calendar">
-        <thead className="day-headers">{this.props.showDaysOfWeek ? this.renderDaysOfWeek() : null}</thead>
+        <thead className="day-headers">
+          {this.props.showDaysOfWeek ? this.renderDaysOfWeek() : null}
+        </thead>
         <tbody>{months}</tbody>
       </table>
     );

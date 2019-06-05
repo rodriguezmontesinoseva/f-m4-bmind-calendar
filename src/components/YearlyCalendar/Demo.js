@@ -1,6 +1,6 @@
-import React from 'react';
-import { Calendar, CalendarControls } from 'react-yearly-calendar';
-import ValidateButton from '../ValidateButton';
+import React from "react";
+import { Calendar, CalendarControls } from "react-yearly-calendar";
+import ValidateButton from "../ValidateButton";
 class Demo extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +47,7 @@ class Demo extends React.Component {
     customCSSclasses = {};
 
     for (let period of selectedUser.periods) {
-      const name = 'periods ' + period.id;
+      const name = "periods " + period.id;
       customCSSclasses[name] = {
         start: period.start_date,
         end: period.end_date
@@ -56,7 +56,7 @@ class Demo extends React.Component {
 
     return (
       <div>
-        <div id='calendar'>
+        <div id="calendar">
           <CalendarControls
             year={year}
             showTodayButton={showTodayBtn}
@@ -77,10 +77,12 @@ class Demo extends React.Component {
             onPickDate={date => datePicked(date)}
             onPickRange={(start, end) => rangePicked(start, end)}
             customClasses={customCSSclasses}
-
           />
         </div>
-        <ValidateButton isDisabled={isDisabled} handleValidatePeriod={handleValidatePeriod} />
+        <ValidateButton
+          isDisabled={isDisabled}
+          handleValidatePeriod={handleValidatePeriod}
+        />
       </div>
     );
   }
