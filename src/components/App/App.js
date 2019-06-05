@@ -85,7 +85,7 @@ class App extends React.Component {
     const selectEndDay = this.state.selectedRange[1]._i[2];
     const selectEndMonth = parseInt(this.state.selectedRange[1]._i[1]) + 1;
     const selectEndYear = this.state.selectedRange[1]._i[0];
-    const url = new URL("https://adalab.bmind.es/api/periods");
+    // const url = new URL("https://adalab.bmind.es/api/periods");
     const data = {
       start_date: selectStartYear + "-" + selectStartMonth + "-" + selectStartDay,
       end_date: selectEndYear + "-" + selectEndMonth + "-" + selectEndDay,

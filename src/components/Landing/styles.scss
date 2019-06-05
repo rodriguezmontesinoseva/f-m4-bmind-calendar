@@ -13,6 +13,7 @@
     justify-content: center;
     min-height: 100vh;
     align-items: center;
+    flex-direction: column;
 }
 
 .login_container{
@@ -52,13 +53,27 @@
     margin-bottom: 20px;
 } 
 
-.form__button{
+.form__link{
     height: 35px;
-    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: $primaryColor200;
     background-color: #5ad1ea;
-    color: $basicColor100;
+}
+
+.form__button{
+    border: 0;
+    background-color: transparent;
     font-size: 20px;
     font-weight: bold;
-    font-family: $secondaryFont; 
+    font-family: $secondaryFont;
+    color: $basicColor100;
+    cursor: pointer;
+}
+
+.main__logo{
+    width: 350px;
+    margin-bottom: 30px;
+    margin-right: 15px;
 }

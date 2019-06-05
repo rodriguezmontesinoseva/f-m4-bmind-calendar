@@ -1,11 +1,10 @@
 import React from 'react';
-import moment from 'moment';
 import { Calendar, CalendarControls } from 'react-yearly-calendar';
 import ValidateButton from '../ValidateButton';
 class Demo extends React.Component {
   constructor(props) {
     super(props);
-    const today = moment();
+    // const today = moment();
     this.state = {
       showDaysOfWeek: true,
       showTodayBtn: true,
