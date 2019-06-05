@@ -46,7 +46,6 @@ class Month extends Component {
     const { month, selectingRange, selectedRange } = this.props;
     const { selectingRangeStart, selectingRangeEnd } = this.state;
 
-    // full repaint for some global-affecting rendering props
     if (
       this.props.year !== nextProps.year ||
       this.props.forceFullWeeks !== nextProps.forceFullWeeks ||
@@ -61,7 +60,6 @@ class Month extends Component {
       return true;
     }
 
-    // if we get to this point and we are in 'selectRange' mode then it's likely that we have a change in selectingRange
     if (this.props.selectRange) {
       if (selectingRange === undefined) {
         let oldRangeStart = selectedRange[0].month();
