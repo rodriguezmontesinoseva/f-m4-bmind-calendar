@@ -4,7 +4,6 @@ import "../HomePage";
 import HomePage from "../HomePage";
 import fetchService from "../../services/fetchService";
 import moment from "moment";
-//import Demo, {selectRangeAvailable} from '../YearlyCalendar/Demo';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +23,6 @@ class App extends React.Component {
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);
-    //this.selectRangeAvailable = this.selectRangeAvailable.bind(this);
     this.onPrevYear = this.onPrevYear.bind(this);
     this.onNextYear = this.onNextYear.bind(this);
     this.datePicked = this.datePicked.bind(this);
@@ -49,9 +47,7 @@ class App extends React.Component {
   }
 
   handlerChangeTeam(event) {
-    console.log(event.target.name);
-    
-    const { value} = event.target;
+    const { value } = event.target;
     this.setState({
       team: value
     });
@@ -91,23 +87,27 @@ class App extends React.Component {
       year: selectEndYear,
       user_id: this.state.loggedUser.id
     };
-    console.log(data);
-    // let headers = {
-    //   "Accept": "application/json",
-    //   "Content-Type": "application/json",
-    // }
 
-    // fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers: headers
-    // })
-    //   .then(response => response)
-    //   .then(json => console.log(json));
+    let headers = {
+      "Accept": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
+    }
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: headers
+    })
+      .then(response => response)
+      .then(json => json);
+
+    window.location.reload();
   }
+
+
+
   goToToday() {
     const today = moment();
-
     this.setState({
       selectedDay: today,
       selectedRange: [today, moment(today).add(0, "day")],
@@ -128,18 +128,6 @@ class App extends React.Component {
       selectedDay: start
     });
   }
-
-  // selectRangeAvailable() {
-  //   if(this.props.isDisabled) {
-  //     this.setState({
-  //       selectRange: true
-  //     })
-  //   } else {
-  //     this.setState({
-  //       selectRange: false
-  //     })
-  //   }
-  // }
 
   onPrevYear() {
     this.setState(prevState => ({
@@ -171,30 +159,27 @@ class App extends React.Component {
         {isFetching ? (
           <p className="loading">Loading...</p>
         ) : (
-          <HomePage
-            selectedUser={selectedUser}
-            usersData={usersData}
-            handlerChangeSelect={this.handlerChangeSelect}
-            isDisabled={isDisabled}
-            loggedUser={loggedUser}
-            selectedRange={selectedRange}
-            selectRange={selectRange}
-            year={year}
-            selectedDay={selectedDay}
-            goToToday={this.goToToday}
-            onNextYear={this.onNextYear}
-            datePicked={this.datePicked}
-            onPrevYear={this.onPrevYear}
-            rangePicked={this.rangePicked}
-            selectRangeAvailable={this.selectRangeAvailable}
-            handlerChangeTeam={this.handlerChangeTeam}
-            team={team}
-            handleValidatePeriod={this.handleValidatePeriod}
-            // onPrevYear={() => this.onPrevYear()}
-            // onNextYear={() => this.onNextYear()}
-            // goToToday={() => this.goToToday()}
-          />
-        )}
+            <HomePage
+              selectedUser={selectedUser}
+              usersData={usersData}
+              handlerChangeSelect={this.handlerChangeSelect}
+              isDisabled={isDisabled}
+              loggedUser={loggedUser}
+              selectedRange={selectedRange}
+              selectRange={selectRange}
+              year={year}
+              selectedDay={selectedDay}
+              goToToday={this.goToToday}
+              onNextYear={this.onNextYear}
+              datePicked={this.datePicked}
+              onPrevYear={this.onPrevYear}
+              rangePicked={this.rangePicked}
+              selectRangeAvailable={this.selectRangeAvailable}
+              handlerChangeTeam={this.handlerChangeTeam}
+              team={team}
+              handleValidatePeriod={this.handleValidatePeriod}
+            />
+          )}
       </div>
     );
   }
