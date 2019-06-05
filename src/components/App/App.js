@@ -2,9 +2,10 @@ import React from "react";
 import "./App.scss";
 import "../HomePage";
 import HomePage from "../HomePage";
+import Landing from "../Landing";
 import fetchService from "../../services/fetchService";
 import moment from "moment";
-//import Demo, {selectRangeAvailable} from '../YearlyCalendar/Demo';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -50,8 +51,8 @@ class App extends React.Component {
 
   handlerChangeTeam(event) {
     console.log(event.target.name);
-    
-    const { value} = event.target;
+
+    const { value } = event.target;
     this.setState({
       team: value
     });
@@ -171,30 +172,37 @@ class App extends React.Component {
         {isFetching ? (
           <p className="loading">Loading...</p>
         ) : (
-          <HomePage
-            selectedUser={selectedUser}
-            usersData={usersData}
-            handlerChangeSelect={this.handlerChangeSelect}
-            isDisabled={isDisabled}
-            loggedUser={loggedUser}
-            selectedRange={selectedRange}
-            selectRange={selectRange}
-            year={year}
-            selectedDay={selectedDay}
-            goToToday={this.goToToday}
-            onNextYear={this.onNextYear}
-            datePicked={this.datePicked}
-            onPrevYear={this.onPrevYear}
-            rangePicked={this.rangePicked}
-            selectRangeAvailable={this.selectRangeAvailable}
-            handlerChangeTeam={this.handlerChangeTeam}
-            team={team}
-            handleValidatePeriod={this.handleValidatePeriod}
-            // onPrevYear={() => this.onPrevYear()}
-            // onNextYear={() => this.onNextYear()}
-            // goToToday={() => this.goToToday()}
-          />
-        )}
+            <Switch >
+              <Route
+                exact path="/"
+                component={Landing} />
+              <Route
+                path='/calendar'
+                render={() => (
+                  <HomePage
+                    selectedUser={selectedUser}
+                    usersData={usersData}
+                    handlerChangeSelect={this.handlerChangeSelect}
+                    isDisabled={isDisabled}
+                    loggedUser={loggedUser}
+                    selectedRange={selectedRange}
+                    selectRange={selectRange}
+                    year={year}
+                    selectedDay={selectedDay}
+                    goToToday={this.goToToday}
+                    onNextYear={this.onNextYear}
+                    datePicked={this.datePicked}
+                    onPrevYear={this.onPrevYear}
+                    rangePicked={this.rangePicked}
+                    selectRangeAvailable={this.selectRangeAvailable}
+                    handlerChangeTeam={this.handlerChangeTeam}
+                    team={team}
+                    handleValidatePeriod={this.handleValidatePeriod}
+                  />
+                )}
+              />
+            </Switch>
+          )}
       </div>
     );
   }
