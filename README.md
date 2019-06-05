@@ -32,7 +32,7 @@ This project is under the MIT License - see the file [LICENSE.md] (LICENSE.md) f
 
 ## Authors
 
-* **Alicia Izarra** - [younglust](https://github.com/younglust)
+* **Alicia Izarra** - [aliciaizmar](https://github.com/aliciaizmar)
 * **Elvira Fuente** - [elvirafuente](https://github.com/elvirafuente)
 * **Eva Montesinos** - [rodriguezmontesinoseva](https://github.com/rodriguezmontesinoseva)
 * **Marina Rodriguez** - [marinarodriguez](https://github.com/marinarodriguez)
