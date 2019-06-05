@@ -2,8 +2,10 @@ import React from "react";
 import "./App.scss";
 import "../HomePage";
 import HomePage from "../HomePage";
+import Landing from "../Landing";
 import fetchService from "../../services/fetchService";
 import moment from "moment";
+import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +21,8 @@ class App extends React.Component {
       selectRange: true,
       year: today.year(),
       selectedDay: today,
-      team: "0"
+      team: "0",
+      teamID: ""
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);
@@ -28,7 +31,7 @@ class App extends React.Component {
     this.datePicked = this.datePicked.bind(this);
     this.goToToday = this.goToToday.bind(this);
     this.handlerChangeTeam = this.handlerChangeTeam.bind(this);
-    this.handleValidatePeriod = this.handleValidatePeriod.bind(this)
+    this.handleValidatePeriod = this.handleValidatePeriod.bind(this);
   }
 
   fetchUsers() {
@@ -62,13 +65,15 @@ class App extends React.Component {
       this.setState({
         selectedUser: newUser,
         isDisabled: false,
-        selectRange: true
+        selectRange: true,
+        teamID: newUser.team_id
       });
     } else {
       this.setState({
         selectedUser: newUser,
         isDisabled: true,
-        selectRange: false
+        selectRange: false,
+        teamID: newUser.team_id
       });
     }
   }
@@ -82,16 +87,17 @@ class App extends React.Component {
     const selectEndYear = this.state.selectedRange[1]._i[0];
     const url = new URL("https://adalab.bmind.es/api/periods");
     const data = {
-      start_date: selectStartYear + "-" + selectStartMonth + "-" + selectStartDay,
+      start_date:
+        selectStartYear + "-" + selectStartMonth + "-" + selectStartDay,
       end_date: selectEndYear + "-" + selectEndMonth + "-" + selectEndDay,
       year: selectEndYear,
       user_id: this.state.loggedUser.id
     };
 
     let headers = {
-      "Accept": "application/json",
-      "Content-Type": "application/x-www-form-urlencoded",
-    }
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded"
+    };
 
     fetch(url, {
       method: "POST",
@@ -103,8 +109,6 @@ class App extends React.Component {
 
     window.location.reload();
   }
-
-
 
   goToToday() {
     const today = moment();
@@ -152,33 +156,43 @@ class App extends React.Component {
       selectRange,
       year,
       selectedDay,
-      team
+      team,
     } = this.state;
     return (
       <div className="App">
         {isFetching ? (
           <p className="loading">Loading...</p>
         ) : (
-            <HomePage
-              selectedUser={selectedUser}
-              usersData={usersData}
-              handlerChangeSelect={this.handlerChangeSelect}
-              isDisabled={isDisabled}
-              loggedUser={loggedUser}
-              selectedRange={selectedRange}
-              selectRange={selectRange}
-              year={year}
-              selectedDay={selectedDay}
-              goToToday={this.goToToday}
-              onNextYear={this.onNextYear}
-              datePicked={this.datePicked}
-              onPrevYear={this.onPrevYear}
-              rangePicked={this.rangePicked}
-              selectRangeAvailable={this.selectRangeAvailable}
-              handlerChangeTeam={this.handlerChangeTeam}
-              team={team}
-              handleValidatePeriod={this.handleValidatePeriod}
-            />
+            <Switch >
+              <Route
+                exact path="/"
+                component={Landing} />
+              <Route
+                path='/calendar'
+                render={() => (
+                  <HomePage
+                    selectedUser={selectedUser}
+                    usersData={usersData}
+                    handlerChangeSelect={this.handlerChangeSelect}
+                    isDisabled={isDisabled}
+                    loggedUser={loggedUser}
+                    selectedRange={selectedRange}
+                    selectRange={selectRange}
+                    year={year}
+                    selectedDay={selectedDay}
+                    goToToday={this.goToToday}
+                    onNextYear={this.onNextYear}
+                    datePicked={this.datePicked}
+                    onPrevYear={this.onPrevYear}
+                    rangePicked={this.rangePicked}
+                    selectRangeAvailable={this.selectRangeAvailable}
+                    handlerChangeTeam={this.handlerChangeTeam}
+                    team={team}
+                    handleValidatePeriod={this.handleValidatePeriod}
+                  />
+                )}
+              />
+            </Switch>
           )}
       </div>
     );
