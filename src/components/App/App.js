@@ -51,9 +51,9 @@ class App extends React.Component {
 
   handlerChangeTeam(event) {
     const { value } = event.target;
-    
+
     this.setState({
-      team: value,
+      team: value
     });
   }
 
