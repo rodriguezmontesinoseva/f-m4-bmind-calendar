@@ -24,7 +24,8 @@ function HomePage(props) {
     selectRangeAvailable,
     handlerChangeTeam,
     handleValidatePeriod,
-    team
+    team,
+    teamID
   } = props;
 
   return (
@@ -36,6 +37,7 @@ function HomePage(props) {
         handlerChangeSelect={handlerChangeSelect}
         handlerChangeTeam={handlerChangeTeam}
         team={team}
+        teamID={teamID}
         isDisabled={isDisabled}
         loggedUser={loggedUser}
         selectRange={selectRange}

@@ -20,7 +20,8 @@ class App extends React.Component {
       selectRange: true,
       year: today.year(),
       selectedDay: today,
-      team: "0"
+      team: "0",
+      teamID: ""
     };
     this.handlerChangeSelect = this.handlerChangeSelect.bind(this);
     this.rangePicked = this.rangePicked.bind(this);
@@ -30,7 +31,7 @@ class App extends React.Component {
     this.datePicked = this.datePicked.bind(this);
     this.goToToday = this.goToToday.bind(this);
     this.handlerChangeTeam = this.handlerChangeTeam.bind(this);
-    this.handleValidatePeriod = this.handleValidatePeriod.bind(this)
+    this.handleValidatePeriod = this.handleValidatePeriod.bind(this);
   }
 
   fetchUsers() {
@@ -50,8 +51,8 @@ class App extends React.Component {
 
   handlerChangeTeam(event) {
     console.log(event.target.name);
-    
-    const { value} = event.target;
+
+    const { value } = event.target;
     this.setState({
       team: value
     });
@@ -66,13 +67,15 @@ class App extends React.Component {
       this.setState({
         selectedUser: newUser,
         isDisabled: false,
-        selectRange: true
+        selectRange: true,
+        teamID: newUser.team_id
       });
     } else {
       this.setState({
         selectedUser: newUser,
         isDisabled: true,
-        selectRange: false
+        selectRange: false,
+        teamID: newUser.team_id
       });
     }
   }
@@ -86,7 +89,8 @@ class App extends React.Component {
     const selectEndYear = this.state.selectedRange[1]._i[0];
     const url = new URL("https://adalab.bmind.es/api/periods");
     const data = {
-      start_date: selectStartYear + "-" + selectStartMonth + "-" + selectStartDay,
+      start_date:
+        selectStartYear + "-" + selectStartMonth + "-" + selectStartDay,
       end_date: selectEndYear + "-" + selectEndMonth + "-" + selectEndDay,
       year: selectEndYear,
       user_id: this.state.loggedUser.id
@@ -164,7 +168,8 @@ class App extends React.Component {
       selectRange,
       year,
       selectedDay,
-      team
+      team,
+      teamID
     } = this.state;
     return (
       <div className="App">
@@ -189,6 +194,7 @@ class App extends React.Component {
             selectRangeAvailable={this.selectRangeAvailable}
             handlerChangeTeam={this.handlerChangeTeam}
             team={team}
+            teamID={teamID}
             handleValidatePeriod={this.handleValidatePeriod}
             // onPrevYear={() => this.onPrevYear()}
             // onNextYear={() => this.onNextYear()}
